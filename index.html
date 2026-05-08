@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coastal Restoration x Stone Gate AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #08080e;
+      --surface: #101724;
+      --line: #28374c;
+      --text: #f6f8fc;
+      --muted: #aeb9c8;
+      --cyan: #00d4ff;
+      --gold: #d4a843;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(0, 212, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 82% 12%, rgba(212, 168, 67, 0.10), transparent 24%),
+        linear-gradient(180deg, #0c1220 0%, var(--bg) 55%, #090d17 100%);
+      color: var(--text);
+      font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(1040px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 56px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .brand img {
+      width: 54px;
+      height: 54px;
+      border-radius: 8px;
+    }
+
+    .brand b {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 20px;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 880px;
+      margin-bottom: 18px;
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.02;
+    }
+
+    .lead {
+      max-width: 780px;
+      color: #d8e0eb;
+      font-size: 22px;
+      line-height: 1.45;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .card {
+      display: grid;
+      min-height: 250px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(21, 29, 45, 0.96), rgba(11, 16, 28, 0.96));
+      text-decoration: none;
+      color: var(--text);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+      font-size: 25px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .card strong {
+      align-self: end;
+      color: var(--cyan);
+      font-weight: 800;
+    }
+
+    .note {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border: 1px solid rgba(0, 212, 255, 0.24);
+      border-left: 5px solid var(--cyan);
+      border-radius: 8px;
+      background: rgba(0, 212, 255, 0.10);
+      color: #d8e0eb;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand">
+      <img src="./assets/stonegate-logo.png" alt="Stone Gate AI logo">
+      <div>
+        <b>Stone Gate AI</b>
+        <span>Prepared for Coastal Restoration of Central Florida</span>
+      </div>
+    </div>
+
+    <h1>Coastal Restoration x Stone Gate AI</h1>
+    <p class="lead">A practical operating layer for intake, dispatch, documentation, and follow-up.</p>
+
+    <section class="grid" aria-label="Shareable package links">
+      <a class="card" href="./coastal-restoration-cf-call-deck-v4.html">
+        <div>
+          <h2>Call Deck</h2>
+          <p>Screen-share presentation for the sales call.</p>
+        </div>
+        <strong>Open deck</strong>
+      </a>
+
+      <a class="card" href="./coastal-restoration-cf-live-demo-flow-v1.html">
+        <div>
+          <h2>Live Intake Demo</h2>
+          <p>Interactive sample intake form that generates a dispatch-ready job packet.</p>
+        </div>
+        <strong>Open demo</strong>
+      </a>
+
+      <a class="card" href="./coastal-restoration-cf-print-proposal-v4.html">
+        <div>
+          <h2>Proposal Summary</h2>
+          <p>Print/PDF-friendly proposal summary for post-call review.</p>
+        </div>
+        <strong>Open proposal</strong>
+      </a>
+    </section>
+
+    <p class="note">Suggested use: share the deck during the call, open the live demo when discussing the first workflow, and send the proposal summary afterward.</p>
+  </main>
+</body>
+</html>

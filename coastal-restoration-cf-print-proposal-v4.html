@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coastal Restoration x Stone Gate AI Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #101828;
+      --muted: #536273;
+      --line: #d8e1e8;
+      --paper: #f3f6f8;
+      --white: #ffffff;
+      --navy: #08080e;
+      --cyan: #00a9ce;
+      --gold: #b78321;
+      --cyan-soft: #e8f8fb;
+      --gold-soft: #fff5dc;
+      --shadow: 0 18px 58px rgba(16, 24, 40, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    .page {
+      width: min(980px, calc(100% - 40px));
+      margin: 32px auto;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 34px 38px;
+      background: linear-gradient(135deg, #08080e 0%, #101827 64%, #0c2732 100%);
+      color: white;
+    }
+
+    .lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .lockup img {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+    }
+
+    .lockup span {
+      color: #b7c3d2;
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 38px;
+      line-height: 1.05;
+    }
+
+    h2 {
+      margin: 28px 0 10px;
+      color: #174b60;
+      font-size: 23px;
+      line-height: 1.2;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    p,
+    li,
+    td,
+    th {
+      color: #344456;
+      font-size: 15px;
+    }
+
+    header p,
+    header .meta span {
+      color: #d6deeb;
+    }
+
+    .lead {
+      max-width: 700px;
+      margin-bottom: 0;
+      font-size: 18px;
+    }
+
+    .meta {
+      min-width: 230px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .meta b {
+      display: block;
+      margin-bottom: 4px;
+      color: white;
+    }
+
+    .meta span {
+      display: block;
+      font-size: 14px;
+    }
+
+    main {
+      padding: 30px 38px 38px;
+    }
+
+    .callout {
+      margin: 22px 0;
+      padding: 18px 20px;
+      border: 1px solid #b8dde5;
+      border-left: 6px solid var(--cyan);
+      border-radius: 8px;
+      background: var(--cyan-soft);
+    }
+
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .box {
+      min-height: 100%;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    ul,
+    ol {
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #eaf3f7;
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .price {
+      color: #174b60;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .next-step {
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #ecd79d;
+      border-radius: 8px;
+      background: var(--gold-soft);
+    }
+
+    .next-step h2 {
+      margin-top: 0;
+      color: #7c5313;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: calc(100% - 24px);
+        margin: 12px auto;
+      }
+
+      header,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      header,
+      main {
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 31px;
+      }
+    }
+
+    @media print {
+      @page {
+        size: letter;
+        margin: 0.45in;
+      }
+
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        border: 0;
+        box-shadow: none;
+      }
+
+      header {
+        padding: 26px 30px;
+      }
+
+      main {
+        padding: 24px 30px 0;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      h2 {
+        break-after: avoid;
+      }
+
+      table,
+      .box,
+      .callout,
+      .next-step {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <header>
+      <div>
+        <div class="lockup">
+          <img src="./assets/stonegate-logo.png" alt="Stone Gate AI logo">
+          <span>Stone Gate AI</span>
+        </div>
+        <h1>Coastal Restoration Proposal</h1>
+        <p class="lead">A practical operating layer for intake, dispatch, documentation, and follow-up.</p>
+      </div>
+      <div class="meta">
+        <b>Prepared for</b>
+        <span>Coastal Restoration of Central Florida</span>
+        <b style="margin-top: 12px;">Date</b>
+        <span>May 8, 2026</span>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2>What Stone Gate AI Builds</h2>
+        <p>Stone Gate AI automates the workflows that decide whether a service business makes money. For Coastal, the first rollout should focus on the front-end operating layer: intake, dispatch, documentation, and follow-up.</p>
+      </section>
+
+      <section>
+        <h2>What We Are Solving First</h2>
+        <div class="grid">
+          <div class="box">
+            <h3>Front-end handoff</h3>
+            <ul>
+              <li>Calls are answered, but the handoff is not always restoration-ready.</li>
+              <li>Urgent calls, estimates, and referral handoffs need clearer routing.</li>
+              <li>Water/storm opportunity makes triage and dispatch readiness more important.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>Operating consistency</h3>
+            <ul>
+              <li>Documentation needs consistent photos, readings, scans, and job-file completeness.</li>
+              <li>Referral partners should be captured and tracked cleanly.</li>
+              <li>The website issue is a quick credibility repair.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Recommended Path: Growth</h2>
+        <div class="callout">
+          <p><strong>Growth at $5,000/month, with the separate setup fee waived for this initial start.</strong></p>
+          <p>Growth connects the handoff instead of fixing one piece in isolation. It covers the three categories Coastal needs first: Sales / Lead Intake, Operations / Dispatch, and Service Delivery / Documentation.</p>
+        </div>
+
+        <h3>First 5 workflows installed first</h3>
+        <ol>
+          <li>Emergency restoration intake + job packet.</li>
+          <li>On-call routing / dispatch handoff.</li>
+          <li>Estimate and missed-opportunity follow-up.</li>
+          <li>Documentation SOP checklist.</li>
+          <li>Referral partner intake / tracking.</li>
+        </ol>
+        <p>During onboarding, the system is measured against Coastal's actual calls, jobs, and follow-up activity.</p>
+      </section>
+
+      <section>
+        <h2>Package Options</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Path</th>
+              <th>Scope level</th>
+              <th>Best fit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Audit First</strong></td>
+              <td>Paid workflow leak map before implementation.</td>
+              <td>Best if Coastal wants certainty before implementation.</td>
+            </tr>
+            <tr>
+              <td><strong>Recovery</strong><br><span class="price">$3,000/month</span></td>
+              <td>1 workflow category. First 2 workflows installed first.</td>
+              <td>Best proof path: emergency intake + dispatch handoff.</td>
+            </tr>
+            <tr>
+              <td><strong>Growth</strong><br><span class="price">$5,000/month</span></td>
+              <td>3 workflow categories. First 5 workflows installed first.</td>
+              <td>Recommended first operating layer for Coastal.</td>
+            </tr>
+            <tr>
+              <td><strong>Partner</strong><br><span class="price">$10,000/month + attributable upside</span></td>
+              <td>All 12 categories.</td>
+              <td>Future path unless Coastal wants the full operating layer now.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>First 30 Days</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Week</th>
+              <th>Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Week 1</td>
+              <td>Map fields, routing, current tools, and owner rules.</td>
+            </tr>
+            <tr>
+              <td>Week 2</td>
+              <td>Build intake + job packet + dispatch handoff.</td>
+            </tr>
+            <tr>
+              <td>Week 3</td>
+              <td>Add estimate follow-up + documentation SOP checklist.</td>
+            </tr>
+            <tr>
+              <td>Week 4</td>
+              <td>Add referral tracking + KPI baseline + next workflow priorities.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>What Coastal Provides</h2>
+        <ul>
+          <li>Current answering-service handoff format and any scripts or instructions.</li>
+          <li>Intake fields Shawn/Tom want captured on restoration calls.</li>
+          <li>Routing rules for Shawn, Tom, office queue, and on-call techs.</li>
+          <li>Current tools used for calls, calendar, CRM, dispatch, photos, documents, and follow-up.</li>
+          <li>Documentation checklist or examples of complete job files.</li>
+          <li>Referral partner categories and follow-up preferences.</li>
+          <li>Website or hosting contact if Coastal wants the public-trust repair handled.</li>
+        </ul>
+      </section>
+
+      <section class="next-step">
+        <h2>Next Step</h2>
+        <p>Choose the path that fits how Coastal wants to move: Audit First, Recovery proof, or Growth as the first operating layer.</p>
+        <p><strong>Recommended decision:</strong> start with Growth at $5,000/month, with the separate setup fee waived for this initial start.</p>
+      </section>
+    </main>
+  </article>
+</body>
+</html>

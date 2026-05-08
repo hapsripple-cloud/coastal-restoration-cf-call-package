@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coastal Restoration x Stone Gate AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #08080e;
+      --surface: #101724;
+      --surface-2: #151d2d;
+      --line: #28374c;
+      --line-soft: rgba(127, 219, 255, 0.18);
+      --text: #f6f8fc;
+      --muted: #aeb9c8;
+      --muted-2: #7f8da2;
+      --cyan: #00d4ff;
+      --cyan-soft: rgba(0, 212, 255, 0.12);
+      --gold: #d4a843;
+      --gold-soft: rgba(212, 168, 67, 0.14);
+      --red: #ff7a59;
+      --red-soft: rgba(255, 122, 89, 0.11);
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(0, 212, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 82% 12%, rgba(212, 168, 67, 0.10), transparent 24%),
+        linear-gradient(180deg, #0c1220 0%, #08080e 44%, #090d17 100%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.68), transparent 76%);
+    }
+
+    .topbar {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 28px;
+      background: linear-gradient(180deg, rgba(8, 8, 14, 0.9), rgba(8, 8, 14, 0));
+      pointer-events: none;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+    }
+
+    .brand span,
+    .prepared {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .prepared {
+      text-align: right;
+    }
+
+    .slide {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(30px, 1fr) minmax(0, 1160px) minmax(30px, 1fr);
+      align-items: center;
+      padding: 70px 0 44px;
+      scroll-snap-align: start;
+    }
+
+    .shell {
+      grid-column: 2;
+      width: 100%;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--cyan);
+      font-size: 14px;
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 980px;
+      margin-bottom: 24px;
+      font-size: 66px;
+      line-height: 1.02;
+    }
+
+    h2 {
+      max-width: 1000px;
+      margin-bottom: 20px;
+      font-size: 52px;
+      line-height: 1.04;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+      line-height: 1.16;
+    }
+
+    .lead {
+      max-width: 900px;
+      margin-bottom: 0;
+      color: #d8e0eb;
+      font-size: 25px;
+      line-height: 1.36;
+    }
+
+    .copy {
+      max-width: 800px;
+      color: #c8d2df;
+      font-size: 19px;
+      line-height: 1.55;
+    }
+
+    .logo-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding: 10px 14px 10px 10px;
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      background: rgba(16, 23, 36, 0.72);
+    }
+
+    .logo-hero img {
+      width: 54px;
+      height: 54px;
+      border-radius: 8px;
+    }
+
+    .logo-hero b {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 18px;
+    }
+
+    .logo-hero span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .six {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .card,
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(21, 29, 45, 0.96), rgba(11, 16, 28, 0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .card {
+      min-height: 100%;
+      padding: 22px;
+    }
+
+    .panel {
+      padding: 30px;
+    }
+
+    .card p,
+    .card li,
+    .panel p,
+    .panel li {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.48;
+    }
+
+    .card p:last-child,
+    .panel p:last-child,
+    .card ul:last-child,
+    .panel ul:last-child,
+    .card ol:last-child,
+    .panel ol:last-child {
+      margin-bottom: 0;
+    }
+
+    .category {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16, 23, 36, 0.84);
+      color: #ebf2fb;
+      text-align: center;
+      font-weight: 800;
+      font-size: 15px;
+      line-height: 1.24;
+    }
+
+    .note {
+      border-left: 5px solid var(--cyan);
+      border-radius: 8px;
+      padding: 24px 26px;
+      background: var(--cyan-soft);
+    }
+
+    .note.red-note {
+      border-left-color: var(--red);
+      background: var(--red-soft);
+    }
+
+    .note strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 21px;
+    }
+
+    .note code {
+      display: inline-block;
+      max-width: 100%;
+      margin-top: 12px;
+      padding: 9px 10px;
+      border: 1px solid rgba(255, 122, 89, 0.32);
+      border-radius: 6px;
+      background: rgba(8, 8, 14, 0.48);
+      color: #ffd0c5;
+      font-size: 15px;
+      overflow-wrap: anywhere;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .flow-step {
+      min-height: 166px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16, 23, 36, 0.86);
+    }
+
+    .num {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      background: var(--cyan);
+      color: #041018;
+      font-weight: 900;
+    }
+
+    .package {
+      display: grid;
+      gap: 10px;
+      min-height: 420px;
+    }
+
+    .recommended {
+      border-color: rgba(0, 212, 255, 0.55);
+      box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.12), var(--shadow);
+    }
+
+    .badge {
+      display: inline-flex;
+      width: fit-content;
+      min-height: 28px;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: #f4d98b;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .price {
+      margin: 10px 0 8px;
+      color: var(--cyan);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 32px;
+      line-height: 1.05;
+      font-weight: 800;
+    }
+
+    .mini {
+      margin-top: 4px;
+      color: var(--muted-2);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .packet {
+      padding: 28px;
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #111a2c, #0b1020);
+      box-shadow: var(--shadow);
+    }
+
+    .packet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .packet-line {
+      min-height: 76px;
+      padding: 13px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .packet-line span {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted-2);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .packet-line b {
+      display: block;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .roadmap {
+      counter-reset: road;
+      display: grid;
+      gap: 13px;
+      margin-top: 26px;
+      max-width: 940px;
+    }
+
+    .roadmap-item {
+      counter-increment: road;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 15px;
+      align-items: center;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16, 23, 36, 0.86);
+    }
+
+    .roadmap-item::before {
+      content: counter(road);
+      display: inline-flex;
+      width: 36px;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--cyan);
+      color: #041018;
+      font-weight: 900;
+    }
+
+    .roadmap-item b {
+      font-size: 18px;
+    }
+
+    .definition {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .definition div {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .definition b {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .definition span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .week-row,
+    .decision-row {
+      display: grid;
+      grid-template-columns: 185px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16, 23, 36, 0.86);
+    }
+
+    .week-row b,
+    .decision-row b {
+      color: var(--cyan);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 28px;
+      padding: 13px 18px;
+      border-radius: 6px;
+      background: var(--cyan);
+      color: #041018;
+      text-decoration: none;
+      font-weight: 900;
+      box-shadow: 0 12px 34px rgba(0, 212, 255, 0.22);
+    }
+
+    .footer {
+      position: fixed;
+      right: 22px;
+      bottom: 18px;
+      z-index: 4;
+      color: rgba(245, 247, 251, 0.46);
+      font-size: 12px;
+      font-weight: 800;
+      pointer-events: none;
+    }
+
+    @media (max-width: 980px) {
+      .slide {
+        padding: 84px 0 34px;
+      }
+
+      .topbar {
+        padding: 14px 18px;
+      }
+
+      .prepared,
+      .footer {
+        display: none;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 36px;
+      }
+
+      .lead {
+        font-size: 21px;
+      }
+
+      .split,
+      .two,
+      .three,
+      .four,
+      .six,
+      .flow,
+      .definition {
+        grid-template-columns: 1fr;
+      }
+
+      .packet-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .week-row,
+      .decision-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <img src="./assets/stonegate-logo.png" alt="Stone Gate AI logo">
+      <span>Stone Gate AI</span>
+    </div>
+    <div class="prepared">Prepared for Coastal Restoration of Central Florida</div>
+  </div>
+
+  <main>
+    <section class="slide">
+      <div class="shell">
+        <div class="logo-hero">
+          <img src="./assets/stonegate-logo.png" alt="Stone Gate AI logo">
+          <div>
+            <b>Stone Gate AI</b>
+            <span>Workflow systems for service operators</span>
+          </div>
+        </div>
+        <p class="eyebrow">Prepared for Coastal Restoration of Central Florida</p>
+        <h1>Coastal Restoration x Stone Gate AI</h1>
+        <p class="lead">A practical operating layer for intake, dispatch, documentation, and follow-up.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="shell">
+        <p class="eyebrow">What Stone Gate AI does</p>
+        <h2>We automate the workflows that decide whether a service business makes money.</h2>
+        <p class="lead">The framework covers 12 operating categories. Each category contains specific workflows that can be installed, measured, and improved.</p>
+        <div class="grid six" style="margin-top: 30px;">
+          <div class="category">Sales</div>
+          <div class="category">Lead Generation</div>
+          <div class="category">Operations / Dispatch</div>
+          <div class="category">Service Delivery</div>
+          <div class="category">Billing / AR</div>
+          <div class="category">Retention</div>
+          <div class="category">Reviews / Reputation</div>
+          <div class="category">Hiring / HR</div>
+          <div class="category">Compliance</div>
+          <div class="category">Vendor / Partnership</div>
+          <div class="category">Reporting / Analytics</div>
+          <div class="category">Owner-only</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="shell">
+        <p class="eyebrow">What we heard from Coastal</p>
+        <h2>The opportunity is not just more call coverage. It is better restoration context.</h2>
+        <div class="grid three">
+          <article class="card">
+            <h3>Calls are answered</h3>
+            <p>The answering service helps prevent missed calls.</p>
+          </article>
+          <article class="card">
+            <h3>Handoffs are thin</h3>
+            <p>The first message does not always contain enough restoration detail for the next move.</p>
+          </article>
+          <article class="card">
+            <h3>Coordination is still manual</h3>
+            <p>Urgency, routing, scheduling, and follow-up need a cleaner operating path.</p>
+          </article>
+          <article class="card">
+            <h3>Documentation matters</h3>
+            <p>Photos, readings, scans, and complete job files need to be consistent.</p>
+          </article>
+          <article class="card">
+            <h3>Water/storm opportunity</h3>
+            <p>Higher urgency work makes triage and dispatch readiness more valuable.</p>
+          </article>
+          <article class="card">
+            <h3>Referral partners matter</h3>
+            <p>Partner calls should be captured cleanly and tied to the source relationship.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="shell split">
+        <div>
+          <p class="eyebrow">What we found</p>
+          <h2>The website is a quick credibility repair.</h2>
+          <p class="copy">Even when the best opportunities come through referrals, homeowners and partners still check the public footprint. A working site or emergency landing page helps the business look as responsive online as it is in the field.</p>
+        </div>
+        <div class="note red-note">
+          <strong>Current public finding</strong>
+          <p>The public website is currently returning a WordPress database/server error.</p>
+          <code>coastalcentralfl.com: HTTP 500 / WordPress Database Error</code>
+          <p style="margin-top: 16px;">This is a quick credibility repair. The main opportunity is the workflow behind the first call.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="shell">
+        <p class="eyebrow">The main leak</p>
+        <h2>Calls are answered, but the handoff is not restoration-ready.</h2>
+        <div class="flow">
+          <article class="flow-step">
+            <span class="num">1</span>
+            <h3>Opportunity arrives</h3>
+            <p>A homeowner or referral partner calls with a possible water, mold, fire, smoke, or roof-related issue.</p>
+          </article>
+          <article class="flow-step">
+            <span class="num">2</span>
+            <h3>Key details are needed</h3>
+            <p>Loss type, urgency, property area, access, photos, payment path, and routing all shape the next move.</p>
+          </article>
+          <article class="flow-step">
+            <span class="num">3</span>
+            <h3>The team needs a clean packet</h3>
+            <p>The better the first packet, the easier it is to respond, dispatch, follow up, and document the job correctly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="shell">
+        <p class="eyebrow">The first workflow</p>
+        <h2>Emergency intake to urgency classification to dispatch-ready packet.</h2>
+        <div class="grid three">
+          <article class="card">
+            <h3>Intake</h3>
+            <p>Capture loss type, caller type, property area, payment path, photos, access notes, and route.</p>
+          </article>
+          <article class="card">
+            <h3>Classification</h3>
+            <p>Separate emergency triage, same-day callback, estimate request, referral handoff, and office queue.</p>
+          </article>
+          <article class="card">
+            <h3>Packet</h3>
+            <p>Send a concise summary with next action, route, and open questions for the person responding.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="shell split">
+        <div>
+          <p class="eyebrow">Live demo transition</p>
+          <h2>Here is what the first workflow could produce.</h2>
+          <p class="copy">The dispatch-ready packet is the core asset. It turns the first conversation into usable operating context for the team.</p>
+          <a class="button" href="./coastal-restoration-cf-live-demo-flow-v1.html">Open the intake demo</a>
+        </div>
+        <div class="packet">
+          <h3>Dispatch-Ready Job Packet</h3>
+          <div class="packet-grid">
+            <div class="packet-line"><span>Status</span><b>Urgent triage</b></div>
+            <div class="packet-line"><span>Loss type</span><b>Water intrusion</b></div>
+            <div class="packet-line"><span>Caller type</span><b>Homeowner / referral source</b></div>
+            <div class="packet-line"><span>Property area</span><b>Central Florida</b></div>
+            <div class="packet-line"><span>Payment path</span><b>Insurance or cash path captured</b></div>
+            <div class="packet-line"><span>Photos</span><b>Photo status captured</b></div>
+            <div class="packet-line"><span>Access</span><b>Availability and access notes</b></div>
+            <div class="packet-line"><span>Route</span><b>Shawn, Tom, office, or on-call tech</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="shell">
+        <p class="eyebrow">The Coastal rollout</p>
+        <h2>Five install priorities for the first connected operating layer.</h2>
+        <div class="roadmap">
+          <div class="roadmap-item"><b>Emergency restoration intake + job packet</b></div>
+          <div class="roadmap-item"><b>On-call routing / dispatch handoff</b></div>
+          <div class="roadmap-item"><b>Estimate and missed-opportunity follow-up</b></div>
+          <div class="roadmap-item"><b>Documentation SOP checklist</b></div>
+          <div class="roadmap-item"><b>Referral partner intake / tracking</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="shell">
+        <p class="eyebrow">Package options</p>
+        <h2>Scope level determines how many categories and workflows are installed.</h2>
+        <div class="definition">
+          <div><b>Category</b><span>A broader operating area, such as Sales / Lead Intake or Operations / Dispatch.</span></div>
+          <div><b>Workflow</b><span>A specific installed process inside a category, such as emergency intake + job packet.</span></div>
+        </div>
+        <div class="grid four" style="margin-top: 18px;">
+          <article class="card package">
+            <h3>Audit First</h3>
+            <p class="price">Map</p>
+            <p>Paid workflow leak map before implementation.</p>
+            <p class="mini">Best if Coastal wants certainty before implementation.</p>
+          </article>
+          <article class="card package">
+            <h3>Recovery</h3>
+            <p class="price">$3K/mo</p>
+            <p>1 workflow category.</p>
+            <p>First 2 workflows installed first.</p>
+            <p class="mini">Best proof path: emergency intake + dispatch handoff.</p>
+          </article>
+          <article class="card package recommended">
+            <span class="badge">Recommended</span>
+            <h3>Growth</h3>
+            <p class="price">$5K/mo</p>
+            <p>3 workflow categories.</p>
+            <p>First 5 workflows installed first.</p>
+            <p class="mini">Sales / Lead Intake, Operations / Dispatch, Service Delivery / Documentation. Separate setup fee waived for this initial start.</p>
+          </article>
+          <article class="card package">
+            <h3>Partner</h3>
+            <p class="price">$10K/mo + attributable upside</p>
+            <p>Full operating layer across all 12 categories.</p>
+            <p class="mini">Future path unless Coastal wants the full operating layer now.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="shell split">
+        <div>
+          <p class="eyebrow">Why Growth</p>
+          <h2>Coastal's issue is not isolated. The handoff needs to connect.</h2>
+        </div>
+        <div class="panel">
+          <p class="copy">Intake affects dispatch, dispatch affects documentation, documentation affects follow-up, and referral tracking affects the next best opportunity.</p>
+          <p class="copy">Growth connects the handoff instead of fixing one piece in isolation. It is the first meaningful operating layer across the three categories Coastal needs first.</p>
+          <p class="copy">During onboarding, the system is measured against Coastal's actual calls, jobs, and follow-up activity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="shell">
+        <p class="eyebrow">First 30 days</p>
+        <h2>A practical rollout with clear milestones.</h2>
+        <div class="grid" style="margin-top: 28px;">
+          <div class="week-row">
+            <b>Week 1</b>
+            <span>Map fields, routing, current tools, and owner rules.</span>
+          </div>
+          <div class="week-row">
+            <b>Week 2</b>
+            <span>Build intake + job packet + dispatch handoff.</span>
+          </div>
+          <div class="week-row">
+            <b>Week 3</b>
+            <span>Add estimate follow-up + documentation SOP checklist.</span>
+          </div>
+          <div class="week-row">
+            <b>Week 4</b>
+            <span>Add referral tracking + KPI baseline + next workflow priorities.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="shell">
+        <p class="eyebrow">Decision</p>
+        <h2>Which path fits how you want to move: audit first, Recovery proof, or Growth as the first operating layer?</h2>
+        <div class="grid" style="margin-top: 28px;">
+          <div class="decision-row">
+            <b>Audit first</b>
+            <span>Map the workflow leaks before choosing the implementation scope.</span>
+          </div>
+          <div class="decision-row">
+            <b>Recovery proof</b>
+            <span>Start with intake-to-dispatch as the first proof workflow category.</span>
+          </div>
+          <div class="decision-row">
+            <b>Growth rollout</b>
+            <span>Install the first connected operating layer across intake, dispatch, documentation, follow-up, and referral tracking.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="footer">Stone Gate AI</div>
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    let activeIndex = 0;
+
+    function goToSlide(index) {
+      const bounded = Math.max(0, Math.min(slides.length - 1, index));
+      activeIndex = bounded;
+      slides[bounded].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ') {
+        event.preventDefault();
+        goToSlide(activeIndex + 1);
+      }
+
+      if (event.key === 'ArrowLeft' || event.key === 'PageUp') {
+        event.preventDefault();
+        goToSlide(activeIndex - 1);
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeIndex = slides.indexOf(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    slides.forEach((slide) => observer.observe(slide));
+  </script>
+</body>
+</html>

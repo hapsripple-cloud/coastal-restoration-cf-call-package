@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coastal Restoration Intake Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172232;
+      --muted: #5f6d7b;
+      --line: #d7e0e7;
+      --paper: #f4f7f8;
+      --white: #ffffff;
+      --teal: #00a9ce;
+      --blue: #244f7c;
+      --amber: #b7791f;
+      --green: #28764d;
+      --red: #a6422d;
+      --shadow: 0 18px 58px rgba(23, 34, 50, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    .page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    header {
+      background: #08080e;
+      border-bottom: 1px solid var(--line);
+      padding: 22px 28px;
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      display: grid;
+      gap: 4px;
+    }
+
+    .brand b {
+      font-size: 18px;
+      color: white;
+      font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+    }
+
+    .brand span,
+    .status {
+      color: #a8b4c5;
+      font-size: 14px;
+    }
+
+    .status {
+      border: 1px solid rgba(0, 212, 255, 0.22);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(0, 212, 255, 0.1);
+      color: #d9f7ff;
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    main {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 30px 28px 44px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel-header {
+      padding: 22px 24px 0;
+    }
+
+    .panel-header h1,
+    .panel-header h2 {
+      margin: 0 0 8px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+    }
+
+    .panel-header h1 {
+      font-size: clamp(28px, 4vw, 42px);
+    }
+
+    .panel-header h2 {
+      font-size: 25px;
+    }
+
+    .panel-header p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    form {
+      padding: 22px 24px 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 800;
+      color: #334355;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    select,
+    input,
+    textarea {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid #c8d4dd;
+      border-radius: 6px;
+      padding: 11px 12px;
+      color: var(--ink);
+      background: #ffffff;
+      font: inherit;
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 88px;
+      resize: vertical;
+    }
+
+    select:focus,
+    input:focus,
+    textarea:focus {
+      outline: 3px solid rgba(15, 118, 110, 0.2);
+      border-color: var(--teal);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    button {
+      min-height: 50px;
+      border: 0;
+      border-radius: 6px;
+      padding: 13px 18px;
+      background: var(--teal);
+      color: #041018;
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(15, 118, 110, 0.22);
+    }
+
+    button:focus {
+      outline: 3px solid rgba(15, 118, 110, 0.24);
+      outline-offset: 2px;
+    }
+
+    .packet {
+      padding: 22px 24px 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .packet-status {
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+      border-radius: 8px;
+      background: #f2fbf8;
+      border: 1px solid #bfe3d6;
+    }
+
+    .packet-status strong {
+      color: var(--green);
+      font-size: 19px;
+    }
+
+    .packet-status span {
+      color: #496074;
+      line-height: 1.45;
+    }
+
+    .packet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .packet-line {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      padding: 14px;
+      min-height: 82px;
+    }
+
+    .packet-line small {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-weight: 900;
+    }
+
+    .packet-line b {
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .open-questions {
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    .open-questions h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .open-questions ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #415267;
+      line-height: 1.45;
+    }
+
+    .open-questions li + li {
+      margin-top: 7px;
+    }
+
+    .route-emergency {
+      background: #fff7f3;
+      border-color: #efc4b3;
+    }
+
+    .route-emergency strong {
+      color: var(--red);
+    }
+
+    .route-soon {
+      background: #fffaf0;
+      border-color: #ead49d;
+    }
+
+    .route-soon strong {
+      color: var(--amber);
+    }
+
+    @media (max-width: 980px) {
+      .header-inner,
+      main {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding: 22px 18px 34px;
+      }
+
+      header {
+        padding: 20px 18px;
+      }
+
+      .form-grid,
+      .packet-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .status {
+        justify-self: start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <img src="./assets/stonegate-logo.png" alt="Stone Gate AI logo">
+          <div class="brand-text">
+            <b>Coastal Restoration Intake Demo</b>
+            <span>Emergency intake to dispatch-ready packet</span>
+          </div>
+        </div>
+        <div class="status">Stone Gate AI demo flow</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel" aria-labelledby="form-title">
+        <div class="panel-header">
+          <h1 id="form-title">Restoration call intake</h1>
+          <p>Walk through a sample restoration call and generate the packet Shawn, Tom, the office, or an on-call tech could receive.</p>
+        </div>
+
+        <form id="intake-form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="lossType">Loss type</label>
+              <select id="lossType" name="lossType">
+                <option>Water intrusion</option>
+                <option>Mold concern</option>
+                <option>Fire / smoke damage</option>
+                <option>Roof leak</option>
+                <option>Unknown / needs triage</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="urgency">Urgency</label>
+              <select id="urgency" name="urgency">
+                <option>Active water or urgent issue</option>
+                <option>Same-day callback needed</option>
+                <option>Estimate request</option>
+                <option>Referral partner handoff</option>
+                <option>Office queue</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="callerType">Caller type</label>
+              <select id="callerType" name="callerType">
+                <option>Homeowner</option>
+                <option>Public adjuster</option>
+                <option>Plumber</option>
+                <option>Roofer</option>
+                <option>Property manager</option>
+                <option>Other referral partner</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="payPath">Insurance / cash path</label>
+              <select id="payPath" name="payPath">
+                <option>Insurance claim not started</option>
+                <option>Insurance claim started</option>
+                <option>Cash-pay estimate</option>
+                <option>Unsure / needs guidance</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="photos">Photos</label>
+              <select id="photos" name="photos">
+                <option>Can text photos now</option>
+                <option>Photos already available</option>
+                <option>No photos yet</option>
+                <option>Needs help capturing photos</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="propertyArea">Property area</label>
+              <input id="propertyArea" name="propertyArea" value="Melbourne / Central Florida">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="accessNotes">Access notes</label>
+            <textarea id="accessNotes" name="accessNotes">Caller is available after 3pm. Gate code needed before dispatch.</textarea>
+          </div>
+
+          <div class="field">
+            <label for="route">On-call route</label>
+            <select id="route" name="route">
+              <option>Route to Shawn</option>
+              <option>Route to Tom</option>
+              <option>Route to on-call tech</option>
+                <option>Route to office queue</option>
+              <option>Route to referral partner follow-up</option>
+            </select>
+          </div>
+
+          <button type="submit">Generate dispatch-ready packet</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="packet-title">
+        <div class="panel-header">
+          <h2 id="packet-title">Dispatch-ready job packet</h2>
+          <p>This is the usable handoff the first workflow is designed to create.</p>
+        </div>
+
+        <div class="packet" id="packet">
+          <div class="packet-status" id="packetStatus">
+            <strong>Urgent triage</strong>
+            <span>Water intrusion with an active issue. Route to Shawn and confirm whether dispatch is needed.</span>
+          </div>
+
+          <div class="packet-grid">
+            <div class="packet-line"><small>Loss type</small><b id="outLossType">Water intrusion</b></div>
+            <div class="packet-line"><small>Urgency</small><b id="outUrgency">Active water or urgent issue</b></div>
+            <div class="packet-line"><small>Caller type</small><b id="outCallerType">Homeowner</b></div>
+            <div class="packet-line"><small>Insurance / cash path</small><b id="outPayPath">Insurance claim not started</b></div>
+            <div class="packet-line"><small>Photos</small><b id="outPhotos">Can text photos now</b></div>
+            <div class="packet-line"><small>Property area</small><b id="outPropertyArea">Melbourne / Central Florida</b></div>
+            <div class="packet-line"><small>Access notes</small><b id="outAccessNotes">Caller is available after 3pm. Gate code needed before dispatch.</b></div>
+            <div class="packet-line"><small>On-call route</small><b id="outRoute">Route to Shawn</b></div>
+          </div>
+
+          <div class="open-questions">
+            <h3>Open questions for callback</h3>
+            <ul id="questions">
+              <li>Confirm exact address and rooms affected.</li>
+              <li>Ask whether the source of water has stopped.</li>
+              <li>Confirm if any equipment, tarp, or emergency stabilization is needed.</li>
+              <li>Confirm insurance carrier, claim status, or cash-pay preference.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const form = document.getElementById('intake-form');
+    const statusBox = document.getElementById('packetStatus');
+    const outputIds = {
+      lossType: 'outLossType',
+      urgency: 'outUrgency',
+      callerType: 'outCallerType',
+      payPath: 'outPayPath',
+      photos: 'outPhotos',
+      propertyArea: 'outPropertyArea',
+      accessNotes: 'outAccessNotes',
+      route: 'outRoute'
+    };
+
+    function value(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function questionsFor(lossType, payPath, photos) {
+      const items = ['Confirm exact address and rooms affected.'];
+
+      if (lossType.includes('Water')) {
+        items.push('Ask whether the source of water has stopped.');
+        items.push('Confirm standing water, affected materials, and need for equipment.');
+      } else if (lossType.includes('Mold')) {
+        items.push('Confirm visible growth, odor, and whether the area is occupied.');
+        items.push('Ask about prior leaks or moisture readings if available.');
+      } else if (lossType.includes('Fire')) {
+        items.push('Confirm smoke odor, soot areas, safety concerns, and utility status.');
+      } else if (lossType.includes('Roof')) {
+        items.push('Confirm active leak, tarp status, and interior water damage.');
+      } else {
+        items.push('Clarify the damage category before assigning urgency.');
+      }
+
+      if (payPath.includes('Insurance')) {
+        items.push('Confirm carrier, claim number if available, and adjuster contact.');
+      } else if (payPath.includes('Cash')) {
+        items.push('Confirm budget expectations and estimate appointment preference.');
+      } else {
+        items.push('Clarify insurance or cash-pay path.');
+      }
+
+      if (photos.includes('No') || photos.includes('Needs')) {
+        items.push('Send photo request link or explain what pictures to capture.');
+      }
+
+      return items;
+    }
+
+    function classify(urgency, lossType, route) {
+      const active = urgency.includes('Active') || lossType.includes('Fire') || lossType.includes('Water');
+      const referral = urgency.includes('Referral') || route.includes('referral');
+
+      statusBox.classList.remove('route-emergency', 'route-soon');
+
+      if (active) {
+        statusBox.classList.add('route-emergency');
+        return {
+          title: 'Urgent triage',
+          detail: `${lossType} with ${urgency.toLowerCase()}. ${route} and decide whether dispatch is needed now.`
+        };
+      }
+
+      if (referral || urgency.includes('Same-day')) {
+        statusBox.classList.add('route-soon');
+        return {
+          title: 'Same-day follow-up',
+          detail: `${urgency}. ${route} with the caller context and open questions.`
+        };
+      }
+
+      return {
+        title: 'Office queue',
+        detail: `${urgency}. Route for estimate scheduling, follow-up, or partner tracking.`
+      };
+    }
+
+    function renderPacket() {
+      const data = {
+        lossType: value('lossType'),
+        urgency: value('urgency'),
+        callerType: value('callerType'),
+        payPath: value('payPath'),
+        photos: value('photos'),
+        propertyArea: value('propertyArea') || 'Needs property area',
+        accessNotes: value('accessNotes') || 'No access notes captured yet',
+        route: value('route')
+      };
+
+      Object.entries(outputIds).forEach(([key, outputId]) => {
+        document.getElementById(outputId).textContent = data[key];
+      });
+
+      const status = classify(data.urgency, data.lossType, data.route);
+      statusBox.querySelector('strong').textContent = status.title;
+      statusBox.querySelector('span').textContent = status.detail;
+
+      const list = document.getElementById('questions');
+      list.innerHTML = '';
+      questionsFor(data.lossType, data.payPath, data.photos).forEach((question) => {
+        const item = document.createElement('li');
+        item.textContent = question;
+        list.appendChild(item);
+      });
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      renderPacket();
+      document.getElementById('packet-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    renderPacket();
+  </script>
+</body>
+</html>
