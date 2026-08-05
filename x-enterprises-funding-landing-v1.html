@@ -217,9 +217,20 @@
     .hero-inner {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 392px;
-      gap: 56px;
+      grid-template-rows: auto auto;
+      gap: 0 56px;
       align-items: start;
       padding: 76px 0 82px;
+    }
+
+    /* Explicit placement so the form can jump above the summary bars on a
+       phone, where stacking would otherwise push it two screens down. */
+    .hero-copy   { grid-column: 1; grid-row: 1; }
+    .hero .bars  { grid-column: 1; grid-row: 2; }
+    .hero .form-block {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: start;
     }
 
     .hero h1 {
@@ -865,9 +876,22 @@
       .hero-inner,
       .close-grid {
         grid-template-columns: minmax(0, 1fr);
-        gap: 40px;
+        gap: 34px;
         padding: 44px 0 52px;
       }
+
+      /* On a phone the opt-in comes before the summary bars, so the form is
+         reachable without scrolling past the whole hero. */
+      .hero-copy,
+      .hero .bars,
+      .hero .form-block {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .hero-copy        { order: 1; }
+      .hero .form-block { order: 2; }
+      .hero .bars       { order: 3; margin-top: 0; max-width: none; }
 
       .row {
         grid-template-columns: minmax(0, 1fr);
@@ -928,7 +952,7 @@
   <section class="band hero">
     <div class="doc">
       <div class="hero-inner">
-        <div>
+        <div class="hero-copy">
           <h1 class="d-xl">
             Your file gets read<br>in about four minutes.<span class="thin">Most owners have never seen it.</span>
           </h1>
@@ -938,13 +962,13 @@
             walks you through that list, so business owners apply blind, get declined, and never learn which
             part of the file did it. This is the list.
           </p>
+        </div>
 
-          <div class="bars">
+        <div class="bars">
             <div><span>01</span><p>The documents to have assembled before you apply for anything</p></div>
             <div><span>02</span><p>The six factors that set your limits, ranked by how fast you can move each one</p></div>
             <div><span>03</span><p>Why applications get declined, and what each one is really failing on</p></div>
             <div><span>04</span><p>Where cards, lines of credit, and personal-backed money genuinely differ</p></div>
-          </div>
         </div>
 
         <div class="form-block">
