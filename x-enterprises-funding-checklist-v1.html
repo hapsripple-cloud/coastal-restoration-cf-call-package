@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business Funding Readiness Checklist | X Enterprises LLC</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       X ENTERPRISES — BUSINESS FUNDING READINESS CHECKLIST
+       The working document. Same ledger system as the funnel pages,
+       set for the page: letter trim, ruled rows, real checkboxes.
+       Screen palette is light only. This is a printed artifact.
+       ============================================================ */
+
+    :root {
+      --paper:      #f4f5f1;
+      --paper-2:    #ffffff;
+      --bar:        #dce7da;
+      --bar-soft:   #eaf0e7;
+      --rule:       #c3cdbf;
+      --rule-soft:  #dde3d9;
+      --ink:        #141a12;
+      --ink-2:      #3c463a;
+      --ink-3:      #6b7568;
+      --blue:       #1b3bc7;
+      --blue-wash:  #e7eafa;
+      --stamp:      #b02a15;
+      --stamp-wash: #faebe7;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 34px 18px 60px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      font-synthesis-weight: none;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: Archivo, "Public Sans", ui-sans-serif, system-ui, sans-serif;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      text-wrap: balance;
+    }
+
+    p, ul, ol, table {
+      margin: 0;
+    }
+
+    a {
+      color: var(--blue);
+      text-underline-offset: 3px;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    /* ---------- sheet ---------- */
+
+    .sheet {
+      width: min(880px, 100%);
+      margin: 0 auto;
+      padding: 0 44px 44px;
+      border: 1px solid var(--rule);
+      background: var(--paper-2);
+    }
+
+    /* ---------- masthead ---------- */
+
+    .masthead {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 28px;
+      align-items: baseline;
+      justify-content: space-between;
+      margin: 0 -44px 34px;
+      padding: 14px 44px;
+      border-bottom: 2px solid var(--ink);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .masthead .org {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* ---------- title block ---------- */
+
+    .titleblock {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 232px;
+      gap: 36px;
+      align-items: start;
+      padding-bottom: 30px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+    }
+
+    .titleblock .standfirst {
+      max-width: 46ch;
+      margin-top: 16px;
+      color: var(--ink-2);
+      font-size: 17px;
+    }
+
+    .usage {
+      padding: 16px 18px;
+      border: 1px solid var(--rule);
+      background: var(--bar-soft);
+    }
+
+    .usage h2 {
+      margin-bottom: 7px;
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .usage p {
+      color: var(--ink-2);
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+
+    /* ---------- sections ---------- */
+
+    section {
+      padding-top: 34px;
+    }
+
+    .sec-head {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+      padding-bottom: 8px;
+    }
+
+    .sec-head .n {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+    }
+
+    .sec-head h2 {
+      font-size: 1.42rem;
+      letter-spacing: -0.028em;
+    }
+
+    .sec-note {
+      max-width: 68ch;
+      margin: 0 0 16px 62px;
+      color: var(--ink-2);
+      font-size: 15px;
+    }
+
+    .indent {
+      margin-left: 62px;
+    }
+
+    /* ---------- checkbox rows ---------- */
+
+    .checks {
+      border-top: 2px solid var(--ink);
+      padding: 0;
+      list-style: none;
+    }
+
+    .checks li {
+      display: grid;
+      grid-template-columns: 26px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      padding: 12px 12px 12px 10px;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+
+    .checks li:nth-child(odd) {
+      background: var(--bar-soft);
+    }
+
+    .checks li::before {
+      content: "";
+      width: 15px;
+      height: 15px;
+      margin-top: 4px;
+      border: 1.5px solid var(--ink-3);
+      background: var(--paper-2);
+    }
+
+    .checks b {
+      display: block;
+      font-weight: 600;
+      font-size: 15.5px;
+      line-height: 1.4;
+    }
+
+    .checks span {
+      display: block;
+      margin-top: 2px;
+      max-width: 66ch;
+      color: var(--ink-2);
+      font-size: 14.5px;
+      line-height: 1.45;
+    }
+
+    /* ---------- comparison table ---------- */
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      font-size: 14.5px;
+    }
+
+    thead th {
+      padding: 9px 13px;
+      border-bottom: 2px solid var(--ink);
+      color: var(--ink);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      text-align: left;
+      vertical-align: bottom;
+    }
+
+    tbody td {
+      padding: 14px 13px;
+      border-bottom: 1px solid var(--rule-soft);
+      color: var(--ink-2);
+      vertical-align: top;
+      line-height: 1.45;
+    }
+
+    tbody tr:nth-child(odd) td {
+      background: var(--bar-soft);
+    }
+
+    tbody td:first-child {
+      width: 23%;
+      color: var(--ink);
+      font-family: Archivo, sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.015em;
+    }
+
+    /* ---------- declines ---------- */
+
+    .declines {
+      border-top: 2px solid var(--ink);
+      padding: 0;
+      list-style: none;
+    }
+
+    .declines li {
+      display: grid;
+      grid-template-columns: 26px minmax(0, 1fr);
+      gap: 14px;
+      padding: 15px 12px 15px 10px;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+
+    .declines li::before {
+      content: "\2717";
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--stamp);
+      padding-top: 2px;
+    }
+
+    .declines h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .declines p {
+      margin-top: 3px;
+      max-width: 66ch;
+      color: var(--ink-2);
+      font-size: 14.5px;
+    }
+
+    .declines .fix {
+      margin-top: 7px;
+      padding-top: 7px;
+      border-top: 1px dashed var(--rule);
+      color: var(--ink-2);
+      font-size: 14.5px;
+    }
+
+    .declines .fix b {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    /* ---------- questions to ask ---------- */
+
+    .asks {
+      border-top: 2px solid var(--ink);
+      padding: 0;
+      list-style: none;
+      counter-reset: ask;
+    }
+
+    .asks li {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 14px;
+      padding: 13px 12px 13px 10px;
+      border-bottom: 1px solid var(--rule-soft);
+      counter-increment: ask;
+    }
+
+    .asks li:nth-child(odd) {
+      background: var(--bar-soft);
+    }
+
+    .asks li::before {
+      content: counter(ask, decimal-leading-zero);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.08em;
+      color: var(--blue);
+      padding-top: 4px;
+    }
+
+    .asks b {
+      display: block;
+      font-weight: 600;
+      font-size: 15.5px;
+      line-height: 1.4;
+    }
+
+    .asks span {
+      display: block;
+      margin-top: 2px;
+      max-width: 66ch;
+      color: var(--ink-2);
+      font-size: 14.5px;
+      line-height: 1.45;
+    }
+
+    /* ---------- next step ---------- */
+
+    .next {
+      margin-top: 40px;
+      padding: 26px 28px 28px;
+      border: 2px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .next h2 {
+      margin-bottom: 10px;
+      font-size: 1.34rem;
+      color: var(--paper);
+    }
+
+    .next p {
+      max-width: 62ch;
+      margin-bottom: 20px;
+      color: #b9c3b4;
+      font-size: 15px;
+    }
+
+    .next a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 22px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Archivo, sans-serif;
+      font-size: 15.5px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+    }
+
+    .next a:hover {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .next a .arrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+    }
+
+    /* ---------- notices ---------- */
+
+    .notices {
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .notices h2 {
+      margin-bottom: 10px;
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .notices p {
+      margin-bottom: 9px;
+      color: var(--ink-3);
+      font-size: 11.5px;
+      line-height: 1.6;
+    }
+
+    .notices p:last-child {
+      margin-bottom: 0;
+    }
+
+    .notices b {
+      color: var(--ink-2);
+      font-weight: 600;
+    }
+
+    .fill {
+      display: inline;
+      padding: 1px 5px;
+      background: var(--blue-wash);
+      box-shadow: inset 0 0 0 1px var(--blue);
+      color: var(--blue);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    /* ---------- responsive ---------- */
+
+    @media (max-width: 780px) {
+      body {
+        padding: 18px 12px 40px;
+      }
+
+      .sheet {
+        padding: 0 20px 32px;
+      }
+
+      .masthead {
+        margin: 0 -20px 26px;
+        padding: 12px 20px;
+      }
+
+      .titleblock {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+      }
+
+      .sec-note,
+      .indent {
+        margin-left: 0;
+      }
+
+      .sec-head {
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 12px;
+      }
+    }
+
+    /* ---------- print ---------- */
+
+    @media print {
+      @page {
+        size: letter;
+        margin: 0.5in;
+      }
+
+      body {
+        padding: 0;
+        background: #fff;
+        font-size: 10.5pt;
+      }
+
+      .sheet {
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: #fff;
+      }
+
+      .masthead {
+        margin: 0 0 22px;
+        padding: 0 0 8px;
+      }
+
+      h1 {
+        font-size: 26pt;
+      }
+
+      .sec-head h2 {
+        font-size: 14pt;
+      }
+
+      section {
+        padding-top: 22px;
+      }
+
+      .sec-head,
+      h2 {
+        break-after: avoid;
+      }
+
+      .checks li,
+      .declines li,
+      .asks li,
+      table,
+      .usage,
+      .next {
+        break-inside: avoid;
+      }
+
+      .next {
+        background: #fff;
+        color: var(--ink);
+        border-color: var(--ink);
+      }
+
+      .next h2 {
+        color: var(--ink);
+      }
+
+      .next p {
+        color: var(--ink-2);
+      }
+
+      .next a {
+        background: #fff;
+        color: var(--blue);
+        padding: 0;
+        font-size: 11pt;
+      }
+
+      .fill {
+        background: #fff;
+        box-shadow: none;
+        color: var(--ink-3);
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet">
+
+    <div class="masthead">
+      <span class="org">X Enterprises LLC</span>
+      <span>Business funding readiness &middot; Rev. 1</span>
+    </div>
+
+    <div class="titleblock">
+      <div>
+        <h1>Business Funding<br>Readiness Checklist</h1>
+        <p class="standfirst">
+          What card issuers and lenders review before they decide, and the gaps worth closing first.
+          Work through this before you submit a single application.
+        </p>
+      </div>
+
+      <div class="usage">
+        <h2>How to use this</h2>
+        <p>Print it. Check off what you already have. Whatever stays unchecked is your work list, roughly in priority order.</p>
+      </div>
+    </div>
+
+    <!-- ============ 01 ============ -->
+    <section>
+      <div class="sec-head">
+        <span class="n">01</span>
+        <h2>The document pack</h2>
+      </div>
+      <p class="sec-note">
+        Assemble these before you start anything. Being asked for a document you cannot produce is the most
+        common reason a file stalls halfway through review.
+      </p>
+
+      <ul class="checks indent">
+        <li>
+          <div>
+            <b>Formation documents</b>
+            <span>Articles of organization or incorporation, plus your operating agreement or bylaws.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>EIN confirmation letter</b>
+            <span>The IRS CP 575 notice, or a 147C letter if the original has gone missing.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Business bank statements, last 3 to 6 months</b>
+            <span>From an account in the business name. Personal statements do not substitute for these.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Business tax returns, last 1 to 2 years</b>
+            <span>Only if the business has filed. A newer entity is not disqualified for lacking them.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Personal tax returns, last 1 to 2 years</b>
+            <span>Frequently requested, since most business credit carries a personal guarantee.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Government-issued photo ID</b>
+            <span>Name and address should match your other records exactly.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Voided business check or bank letter</b>
+            <span>Verifies the account any funding would be deposited into.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>A current profit and loss statement</b>
+            <span>Even a simple one. It shows you know your own numbers, which counts for more than its formatting.</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ 02 ============ -->
+    <section>
+      <div class="sec-head">
+        <span class="n">02</span>
+        <h2>Entity and EIN readiness</h2>
+      </div>
+      <p class="sec-note">
+        Underwriting cross-references your details across several sources. Mismatches read as risk, and every
+        one of them is avoidable.
+      </p>
+
+      <ul class="checks indent">
+        <li>
+          <div>
+            <b>The entity is registered and in good standing</b>
+            <span>Check your Secretary of State listing. An administratively dissolved entity is an immediate stop.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>You have an EIN tied to that entity</b>
+            <span>Not your SSN. Free directly from the IRS, and never worth paying a third party for.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>A dedicated business bank account exists and is in use</b>
+            <span>Running business income through a personal account undercuts everything else on this list.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Business name, address, and phone match everywhere</b>
+            <span>Entity filing, EIN letter, bank account, website, invoices. "Suite 4" and "Ste 4" can differ enough to matter.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>The business address is not a residence or PO box, where avoidable</b>
+            <span>Not always disqualifying, but a commercial or registered agent address reads cleaner.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>The business is reachable</b>
+            <span>A working phone number and a live website. Some issuers do verify both exist.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Your industry classification is accurate</b>
+            <span>Some codes are restricted by some issuers. Knowing yours in advance saves a wasted application.</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ 03 ============ -->
+    <section>
+      <div class="sec-head">
+        <span class="n">03</span>
+        <h2>Credit profile prep</h2>
+      </div>
+      <p class="sec-note">
+        On the products most owners start with, your personal profile carries more weight than anything about
+        the business. Listed in the order worth working through them.
+      </p>
+
+      <ul class="checks indent">
+        <li>
+          <div>
+            <b>Pull all three of your personal reports</b>
+            <span>Free at annualcreditreport.com, the federally authorized source. Checking your own has no effect on your score.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Verify every account listed is actually yours</b>
+            <span>Errors are common. Anything genuinely inaccurate can be corrected with the bureau directly at no cost.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Bring revolving utilization down</b>
+            <span>The fastest-moving factor here. Lower reported balances generally help both approvals and limits.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Confirm no late payments in recent months</b>
+            <span>Recency weighs heavily. A clean recent stretch counts for more than a spotless distant past.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Count your inquiries from the last six months</b>
+            <span>A cluster of recent applications tells underwriting you have been shopping hard and getting declined.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Do not close your oldest account to tidy up</b>
+            <span>Account age works in your favor. Closing an old card removes that history and can raise your utilization.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Know your actual score before you apply</b>
+            <span>Applying blind is how people learn their band the expensive way.</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ 04 ============ -->
+    <section>
+      <div class="sec-head">
+        <span class="n">04</span>
+        <h2>Match the instrument to the money</h2>
+      </div>
+      <p class="sec-note">
+        The right instrument depends on what the money is for and how fast it comes back. A mismatch here is
+        how affordable funding turns expensive.
+      </p>
+
+      <div class="table-wrap indent">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Instrument</th>
+              <th scope="col">Typically needs</th>
+              <th scope="col">Fits</th>
+              <th scope="col">Watch for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Business credit cards</td>
+              <td>Entity, EIN, strong personal profile. Light documentation.</td>
+              <td>Inventory, ad spend, equipment. Spend that recycles quickly.</td>
+              <td>What the rate becomes after any introductory period ends.</td>
+            </tr>
+            <tr>
+              <td>Business line of credit</td>
+              <td>Bank statements, tax returns, time in business, revenue history.</td>
+              <td>Working capital and cash-flow gaps you draw against and repay.</td>
+              <td>Draw fees, maintenance fees, and renewal terms.</td>
+            </tr>
+            <tr>
+              <td>Personal-backed</td>
+              <td>Your personal profile and income. No business history required.</td>
+              <td>Starting capital when the business has no file of its own yet.</td>
+              <td>The obligation is yours, and it consumes personal capacity.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 05 ============ -->
+    <section>
+      <div class="sec-head">
+        <span class="n">05</span>
+        <h2>Why applications get declined</h2>
+      </div>
+      <p class="sec-note">Six patterns account for most of it, and every one is preventable with preparation.</p>
+
+      <ul class="declines indent">
+        <li>
+          <div>
+            <h3>Applying to everything at once</h3>
+            <p>A burst of applications in a short window reads as distress and stacks inquiries against you.</p>
+            <p class="fix"><b>Fix</b> &nbsp;Decide the sequence first, then space the applications deliberately.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>High utilization on the day of review</h3>
+            <p>Your file is judged when it is pulled, not on what you intend to pay down next month.</p>
+            <p class="fix"><b>Fix</b> &nbsp;Bring balances down and let them report before you apply.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Mismatched business details</h3>
+            <p>Name, address, or phone that differ between your filing, your bank, and your application.</p>
+            <p class="fix"><b>Fix</b> &nbsp;Pick one exact format and correct every record to match it.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>No business bank account</h3>
+            <p>Business income running through a personal account leaves the entity with no financial history to read.</p>
+            <p class="fix"><b>Fix</b> &nbsp;Open one, route all business income through it, and let it season.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Documents you cannot produce</h3>
+            <p>An underwriter asks for statements or returns, and the file goes quiet while you hunt for them.</p>
+            <p class="fix"><b>Fix</b> &nbsp;Assemble section 01 before you start.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Asking for more than the file supports</h3>
+            <p>A request far beyond what your revenue and profile justify gets declined outright rather than reduced.</p>
+            <p class="fix"><b>Fix</b> &nbsp;Size the request to what your documentation actually carries.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ 06 ============ -->
+    <section>
+      <div class="sec-head">
+        <span class="n">06</span>
+        <h2>Questions to ask before you accept</h2>
+      </div>
+      <p class="sec-note">
+        Ask these of any funding offer, from anyone, including us. A straight answer to each is the minimum bar.
+      </p>
+
+      <ol class="asks indent">
+        <li>
+          <div>
+            <b>What is the total cost of this money, in dollars, over the full term?</b>
+            <span>Not the rate. The dollar figure you will have paid when it is finished.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Is this a fixed rate or an introductory rate, and what does it become after?</b>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>What fees apply: origination, draw, maintenance, annual, prepayment?</b>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Is there a personal guarantee, and what exactly does it obligate me to?</b>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Does this report to business credit, personal credit, or both?</b>
+            <span>This decides whether it builds a business profile or consumes your personal capacity.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>What happens if I repay early: do I save interest, or is it penalized?</b>
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Who is the actual issuer, and what is the consultant or broker being paid?</b>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <div class="next">
+      <h2>Where owners actually get stuck</h2>
+      <p>
+        Not on understanding this list. On reading their own situation against it. If you want a second set of
+        eyes on where you stand, book a twenty-minute call. No cost, no credit pull, and you leave with a
+        sequence whether or not you work with us.
+      </p>
+      <a href="./x-enterprises-funding-thankyou-v1.html#book">Book a strategy call <span class="arrow">&rarr;</span></a>
+    </div>
+
+    <div class="notices">
+      <h2>Notices</h2>
+      <p>
+        <b>X Enterprises LLC</b> &middot; <span class="fill">[FILL: business address]</span> &middot;
+        <span class="fill">[FILL: phone]</span> &middot; <span class="fill">[FILL: email]</span>
+      </p>
+      <p>
+        X Enterprises LLC is a business funding consultant. <b>We are not a bank, lender, or credit issuer.</b>
+        All credit is extended by third-party banks and issuers under their own underwriting standards and
+        terms. We do not guarantee approval, funding amounts, rates, or timelines. Individual results vary.
+      </p>
+      <p>
+        X Enterprises LLC is not a credit repair organization. We do not offer credit repair services, dispute
+        items on consumer reports on your behalf, or promise any change to your credit score. This checklist is
+        general educational information only and is not legal, tax, accounting, or financial advice. Business
+        credit cards and lines of credit typically require a personal guarantee. Consult a qualified
+        professional about your circumstances before making a funding decision.
+      </p>
+    </div>
+
+  </article>
+</body>
+</html>

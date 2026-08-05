@@ -1,0 +1,1608 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business Funding Readiness File | X Enterprises LLC</title>
+  <meta name="description" content="How business credit cards, lines of credit, and personal-backed funding actually work, and what underwriting reviews before it approves you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       X ENTERPRISES — FUNDING READINESS FILE
+       Visual system: continuous-feed ledger paper. Ink on stock,
+       hairline rules, no cards, no shadows, no rounded corners.
+       Accent is ballpoint blue and is spent only on actions.
+       ============================================================ */
+
+    :root {
+      --paper:      #f4f5f1;
+      --paper-2:    #ffffff;
+      --bar:        #dce7da;
+      --bar-soft:   #eaf0e7;
+      --rule:       #c3cdbf;
+      --rule-soft:  #dde3d9;
+      --ink:        #141a12;
+      --ink-2:      #3c463a;
+      --ink-3:      #6b7568;
+      --blue:       #1b3bc7;
+      --blue-deep:  #142c95;
+      --blue-wash:  #e7eafa;
+      --stamp:      #b02a15;
+      --stamp-wash: #faebe7;
+
+      --measure: 68ch;
+      --rail: 128px;
+      --gutter: 40px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper:      #0e120d;
+        --paper-2:    #141a13;
+        --bar:        #1b241a;
+        --bar-soft:   #161d15;
+        --rule:       #2f392d;
+        --rule-soft:  #232c22;
+        --ink:        #edf0ea;
+        --ink-2:      #b8c2b4;
+        --ink-3:      #87917f;
+        --blue:       #8ba0ff;
+        --blue-deep:  #a9b8ff;
+        --blue-wash:  #171e3b;
+        --stamp:      #ff8f70;
+        --stamp-wash: #2a1611;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      font-synthesis-weight: none;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0;
+      font-family: Archivo, "Public Sans", ui-sans-serif, system-ui, sans-serif;
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      text-wrap: balance;
+    }
+
+    p, ul, ol, table, dl {
+      margin: 0;
+    }
+
+    a {
+      color: var(--blue);
+      text-underline-offset: 3px;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    /* ---------- document frame ---------- */
+
+    .doc {
+      width: min(1180px, 100% - 36px);
+      margin: 0 auto;
+    }
+
+    .band {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .band-inner {
+      display: grid;
+      grid-template-columns: var(--rail) minmax(0, 1fr);
+      gap: var(--gutter);
+      padding: 68px 0;
+    }
+
+    /* the mono metadata rail */
+
+    .rail {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-top: 5px;
+    }
+
+    .rail .sec {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+
+    .rail .desc {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+      color: var(--ink-3);
+      text-transform: uppercase;
+    }
+
+    .label {
+      display: block;
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    /* ---------- type scale ---------- */
+
+    .d-xl { font-size: clamp(2.6rem, 6.4vw, 4.4rem); font-weight: 800; letter-spacing: -0.035em; }
+    .d-l  { font-size: clamp(1.85rem, 3.5vw, 2.7rem); font-weight: 700; letter-spacing: -0.03em; }
+    .d-m  { font-size: 1.32rem; font-weight: 700; letter-spacing: -0.02em; }
+    .d-s  { font-size: 1.02rem; font-weight: 600; letter-spacing: -0.01em; }
+
+    .prose {
+      max-width: var(--measure);
+      color: var(--ink-2);
+    }
+
+    .prose.lead {
+      font-size: 1.16rem;
+      color: var(--ink-2);
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    .stack-tight {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    /* ---------- masthead ---------- */
+
+    .masthead {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 2px solid var(--ink);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .masthead .org {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .masthead .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      color: var(--ink-3);
+    }
+
+    /* ---------- hero ---------- */
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 392px;
+      grid-template-rows: auto auto;
+      gap: 0 56px;
+      align-items: start;
+      padding: 76px 0 82px;
+    }
+
+    /* Explicit placement so the form can jump above the summary bars on a
+       phone, where stacking would otherwise push it two screens down. */
+    .hero-copy   { grid-column: 1; grid-row: 1; }
+    .hero .bars  { grid-column: 1; grid-row: 2; }
+    .hero .form-block {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: start;
+    }
+
+    .hero h1 {
+      margin-bottom: 26px;
+    }
+
+    .hero h1 .thin {
+      display: block;
+      margin-top: 0.34em;
+      font-size: 0.44em;
+      font-weight: 500;
+      line-height: 1.18;
+      color: var(--ink-3);
+      letter-spacing: -0.015em;
+    }
+
+    .hero .prose {
+      max-width: 52ch;
+    }
+
+    /* the ledger-bar summary under the hero copy */
+
+    .bars {
+      width: 100%;
+      max-width: 52ch;
+      margin-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .bars div {
+      display: grid;
+      grid-template-columns: 26px minmax(0, 1fr);
+      gap: 14px;
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--rule-soft);
+      font-size: 15.5px;
+      line-height: 1.45;
+    }
+
+    .bars div:nth-child(odd) {
+      background: var(--bar-soft);
+    }
+
+    .bars span {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--blue);
+      padding-top: 4px;
+    }
+
+    /* ---------- the form ---------- */
+
+    .form-block {
+      border: 2px solid var(--ink);
+      background: var(--paper-2);
+    }
+
+    .form-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .form-body {
+      padding: 24px 20px 22px;
+    }
+
+    .form-body > .d-m {
+      margin-bottom: 8px;
+    }
+
+    .form-body > .note {
+      margin-bottom: 22px;
+      font-size: 15px;
+      color: var(--ink-2);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid var(--rule);
+      border-bottom-width: 2px;
+      border-radius: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .field input::placeholder {
+      color: var(--ink-3);
+    }
+
+    .field input:focus {
+      border-color: var(--blue);
+      background: var(--paper-2);
+      outline: none;
+      box-shadow: inset 0 -2px 0 var(--blue);
+    }
+
+    .field input[aria-invalid="true"] {
+      border-color: var(--stamp);
+      background: var(--stamp-wash);
+    }
+
+    .hp {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 15px 20px;
+      border: 0;
+      border-radius: 0;
+      background: var(--blue);
+      color: #fff;
+      font-family: Archivo, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--blue-deep);
+    }
+
+    .btn[disabled] {
+      opacity: 0.6;
+      cursor: progress;
+    }
+
+    .btn .arrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+    }
+
+    .microcopy {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10.5px;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      text-align: center;
+    }
+
+    .form-error {
+      display: none;
+      padding: 10px 12px;
+      border-left: 3px solid var(--stamp);
+      background: var(--stamp-wash);
+      color: var(--stamp);
+      font-size: 14.5px;
+      font-weight: 500;
+    }
+
+    .form-error.show {
+      display: block;
+    }
+
+    /* ---------- ruled rows (problem patterns) ---------- */
+
+    .rows {
+      width: 100%;
+      border-top: 1px solid var(--rule);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 200px minmax(0, 1fr);
+      gap: 28px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+
+    .row h3 {
+      font-size: 1.02rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .row p {
+      max-width: 62ch;
+      color: var(--ink-2);
+      font-size: 16px;
+    }
+
+    /* ---------- data table ---------- */
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+      font-size: 15.5px;
+    }
+
+    thead th {
+      padding: 10px 16px;
+      border-bottom: 2px solid var(--ink);
+      color: var(--ink);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: left;
+      vertical-align: bottom;
+    }
+
+    tbody td {
+      padding: 18px 16px;
+      border-bottom: 1px solid var(--rule-soft);
+      color: var(--ink-2);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    tbody tr:nth-child(odd) td {
+      background: var(--bar-soft);
+    }
+
+    tbody td:first-child,
+    thead th:first-child {
+      width: 24%;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    tbody td strong {
+      display: block;
+      margin-bottom: 4px;
+      font-family: Archivo, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+
+    tbody td .sub {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    /* ---------- ranked factors ---------- */
+
+    .ranked {
+      width: 100%;
+      border-top: 2px solid var(--ink);
+    }
+
+    .ranked li {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr) 190px;
+      gap: 24px;
+      align-items: baseline;
+      padding: 16px 14px;
+      border-bottom: 1px solid var(--rule-soft);
+      list-style: none;
+    }
+
+    .ranked li:nth-child(odd) {
+      background: var(--bar-soft);
+    }
+
+    .ranked .n {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: var(--blue);
+      letter-spacing: 0.04em;
+    }
+
+    .ranked h3 {
+      font-size: 1.02rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .ranked p {
+      margin-top: 3px;
+      max-width: 58ch;
+      color: var(--ink-2);
+      font-size: 15.5px;
+      line-height: 1.5;
+    }
+
+    .ranked .speed {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      text-align: right;
+    }
+
+    /* ---------- index (checklist contents) ---------- */
+
+    .index {
+      width: 100%;
+      max-width: 760px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .index li {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 18px;
+      align-items: baseline;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--rule-soft);
+      list-style: none;
+      font-size: 16px;
+    }
+
+    .index .sec {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.08em;
+      color: var(--ink-3);
+    }
+
+    /* ---------- two-column split ---------- */
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+      width: 100%;
+      border-top: 2px solid var(--ink);
+    }
+
+    .split > div {
+      padding: 24px 28px 26px 0;
+    }
+
+    .split > div + div {
+      padding-left: 28px;
+      border-left: 1px solid var(--rule);
+    }
+
+    .split h3 {
+      margin-bottom: 16px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+
+    .split ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .split li {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 10px;
+      color: var(--ink-2);
+      font-size: 15.5px;
+      line-height: 1.5;
+    }
+
+    .split li .mk {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 13px;
+      font-weight: 600;
+      padding-top: 1px;
+    }
+
+    .split .yes .mk { color: var(--blue); }
+    .split .no .mk  { color: var(--stamp); }
+
+    /* ---------- proof ---------- */
+
+    .proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      width: 100%;
+      border-top: 2px solid var(--ink);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .proof > div {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 22px 24px 24px 0;
+    }
+
+    .proof > div + div {
+      padding-left: 24px;
+      border-left: 1px solid var(--rule);
+    }
+
+    .fill {
+      display: inline;
+      padding: 1px 5px;
+      background: var(--blue-wash);
+      box-shadow: inset 0 0 0 1px var(--blue);
+      color: var(--blue);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .buildnote {
+      max-width: var(--measure);
+      margin-top: 26px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--blue);
+      background: var(--blue-wash);
+      color: var(--ink-2);
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+
+    .buildnote b {
+      color: var(--ink);
+    }
+
+    /* ---------- faq ---------- */
+
+    .qa {
+      width: 100%;
+      max-width: 860px;
+      border-top: 2px solid var(--ink);
+    }
+
+    .qa details {
+      border-bottom: 1px solid var(--rule-soft);
+    }
+
+    .qa summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 24px;
+      gap: 16px;
+      align-items: baseline;
+      padding: 17px 2px;
+      cursor: pointer;
+      font-family: Archivo, sans-serif;
+      font-size: 1.02rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      list-style: none;
+    }
+
+    .qa summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .qa summary::after {
+      content: "+";
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--blue);
+      text-align: right;
+    }
+
+    .qa details[open] summary::after {
+      content: "\2212";
+    }
+
+    .qa details p {
+      max-width: 66ch;
+      padding: 0 2px 20px;
+      color: var(--ink-2);
+      font-size: 16px;
+    }
+
+    /* ---------- inked close ---------- */
+
+    .close {
+      background: var(--ink);
+      color: var(--paper);
+      border-bottom: 0;
+    }
+
+    .close .band-inner {
+      padding: 74px 0 78px;
+    }
+
+    .close .rail .sec { color: var(--paper); }
+    .close .rail .desc { color: #8d9789; }
+
+    .close-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 392px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .close h2 { color: var(--paper); }
+
+    .close .prose { color: #b9c3b4; }
+
+    .close .form-block {
+      border-color: var(--paper);
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .close .form-head {
+      border-color: var(--paper);
+      background: var(--paper);
+      color: var(--ink);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ---------- colophon ---------- */
+
+    .colophon {
+      background: var(--ink);
+      color: #8d9789;
+      padding: 40px 0 56px;
+      border-top: 1px solid #2b3429;
+    }
+
+    .colophon-grid {
+      display: grid;
+      grid-template-columns: var(--rail) minmax(0, 1fr);
+      gap: var(--gutter);
+    }
+
+    .colophon .sec {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--paper);
+    }
+
+    .colophon-body {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 88ch;
+    }
+
+    .colophon p {
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    .colophon b {
+      color: var(--paper);
+      font-weight: 600;
+    }
+
+    .colophon .fill {
+      background: transparent;
+      box-shadow: inset 0 0 0 1px #4a5447;
+      color: #b9c3b4;
+    }
+
+    /* ---------- responsive ---------- */
+
+    @media (max-width: 1080px) {
+      .hero-inner,
+      .close-grid {
+        grid-template-columns: minmax(0, 1fr) 340px;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --rail: 0px;
+        --gutter: 0px;
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .band-inner,
+      .colophon-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+      }
+
+      .band-inner {
+        padding: 46px 0;
+      }
+
+      .rail {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px 14px;
+        padding-top: 0;
+      }
+
+      .hero-inner,
+      .close-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
+        padding: 44px 0 52px;
+      }
+
+      /* On a phone the opt-in comes before the summary bars, so the form is
+         reachable without scrolling past the whole hero. */
+      .hero-copy,
+      .hero .bars,
+      .hero .form-block {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .hero-copy        { order: 1; }
+      .hero .form-block { order: 2; }
+      .hero .bars       { order: 3; margin-top: 0; max-width: none; }
+
+      .row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 6px;
+      }
+
+      .ranked li {
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 14px;
+        padding: 15px 10px;
+      }
+
+      .ranked .speed {
+        grid-column: 2;
+        text-align: left;
+      }
+
+      .split,
+      .proof {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .split > div,
+      .proof > div {
+        padding: 22px 0;
+        border-bottom: 1px solid var(--rule-soft);
+      }
+
+      .split > div + div,
+      .proof > div + div {
+        padding-left: 0;
+        border-left: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ MASTHEAD ============ -->
+  <div class="doc">
+    <div class="masthead">
+      <span class="org">X Enterprises LLC</span>
+      <span class="meta">
+        <span>File: Business funding readiness</span>
+        <span><span class="fill">[FILL: phone]</span></span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="band hero">
+    <div class="doc">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1 class="d-xl">
+            Your file gets read<br>in about four minutes.<span class="thin">Most owners have never seen it.</span>
+          </h1>
+
+          <p class="prose lead">
+            Underwriting looks at a short, knowable list before it decides what you qualify for. Nobody
+            walks you through that list, so business owners apply blind, get declined, and never learn which
+            part of the file did it. This is the list.
+          </p>
+        </div>
+
+        <div class="bars">
+            <div><span>01</span><p>The documents to have assembled before you apply for anything</p></div>
+            <div><span>02</span><p>The six factors that set your limits, ranked by how fast you can move each one</p></div>
+            <div><span>03</span><p>Why applications get declined, and what each one is really failing on</p></div>
+            <div><span>04</span><p>Where cards, lines of credit, and personal-backed money genuinely differ</p></div>
+        </div>
+
+        <div class="form-block">
+          <div class="form-head">
+            <span>Request the file</span>
+            <span>No credit pull</span>
+          </div>
+          <div class="form-body">
+            <h2 class="d-m">Business Funding Readiness Checklist</h2>
+            <p class="note">Six pages. Opens the moment you submit, so there is no waiting on an email.</p>
+
+            <form id="optin-form" novalidate>
+              <p class="form-error" id="optin-error" role="alert"></p>
+
+              <div class="field">
+                <label class="label" for="firstName">First name</label>
+                <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
+              </div>
+
+              <div class="field">
+                <label class="label" for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+              </div>
+
+              <div class="field">
+                <label class="label" for="phone">Mobile</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+              </div>
+
+              <div class="hp" aria-hidden="true">
+                <label for="companyWebsite">Company website</label>
+                <input type="text" id="companyWebsite" name="companyWebsite" tabindex="-1" autocomplete="off">
+              </div>
+
+              <button class="btn" type="submit" id="optin-submit">
+                Open the checklist <span class="arrow">&rarr;</span>
+              </button>
+              <p class="microcopy">No credit check &middot; No application &middot; Unsubscribe any time</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE PATTERN ============ -->
+  <section class="band">
+    <div class="doc">
+      <div class="band-inner">
+        <div class="rail">
+          <span class="sec">&sect; 01</span>
+          <span class="desc">The pattern</span>
+        </div>
+
+        <div class="stack">
+          <h2 class="d-l">Three ways this goes wrong, and they all start the same way.</h2>
+          <p class="prose">
+            None of these are unusual. They are what happens when the rules are only explained after the
+            decision, which is to say almost always.
+          </p>
+
+          <div class="rows">
+            <div class="row">
+              <h3>Personal cards become the business</h3>
+              <p>
+                Inventory, payroll gaps, equipment, ad spend. It all lands on personal credit at consumer
+                interest rates. The balance follows you personally, and every dollar of it counts against
+                the same profile you will later need for the business.
+              </p>
+            </div>
+            <div class="row">
+              <h3>Declines compound quietly</h3>
+              <p>
+                An unprepared application produces an inquiry and a decline. Several of them in a short
+                window makes the next approval harder than the first one would have been. The damage is
+                cumulative and invisible until you look.
+              </p>
+            </div>
+            <div class="row">
+              <h3>The business has no file at all</h3>
+              <p>
+                An entity with no EIN-linked history, no dedicated bank account, and nothing reported is
+                invisible to underwriting. There is nothing to read, so everything gets judged on you
+                personally instead.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE INSTRUMENTS ============ -->
+  <section class="band">
+    <div class="doc">
+      <div class="band-inner">
+        <div class="rail">
+          <span class="sec">&sect; 02</span>
+          <span class="desc">The instruments</span>
+        </div>
+
+        <div class="stack">
+          <h2 class="d-l">Three instruments. Three different bars to clear.</h2>
+          <p class="prose">
+            Most owners only ever hear about the first one. Which fits depends on what the money is for,
+            how fast it comes back, and what documentation you can produce. These are alternatives, not
+            a ladder, and picking the wrong one is how affordable money turns expensive.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Instrument</th>
+                  <th scope="col">Underwritten on</th>
+                  <th scope="col">Fits</th>
+                  <th scope="col">The catch</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Business credit cards</strong>
+                    <span class="sub">Light documentation</span>
+                  </td>
+                  <td>
+                    Your personal profile, almost entirely. Needs an entity and EIN, but revenue history
+                    matters far less here than anywhere else.
+                  </td>
+                  <td>
+                    Short-cycle spend that recycles quickly. Inventory, ad spend, equipment. Introductory
+                    rate periods are why owners start here.
+                  </td>
+                  <td>
+                    What the rate becomes when the introductory period ends, and the personal guarantee
+                    behind it.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Business line of credit</strong>
+                    <span class="sub">Full financial file</span>
+                  </td>
+                  <td>
+                    The business itself. Bank statements, tax returns, time in business, and the
+                    consistency of your deposits.
+                  </td>
+                  <td>
+                    Working capital and cash-flow gaps you draw against and repay. Usually cheaper than
+                    carrying a card balance.
+                  </td>
+                  <td>
+                    Documentation is the whole barrier. If the records do not exist, neither does the line.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Personal-backed</strong>
+                    <span class="sub">No business file needed</span>
+                  </td>
+                  <td>
+                    You. Personal profile and personal income, deployed into the business.
+                  </td>
+                  <td>
+                    Starting capital when the business has no history of its own and no realistic
+                    alternative yet.
+                  </td>
+                  <td>
+                    The obligation is yours, and it consumes personal capacity you will want later. Worth
+                    choosing deliberately, not landing on.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE FACTORS ============ -->
+  <section class="band">
+    <div class="doc">
+      <div class="band-inner">
+        <div class="rail">
+          <span class="sec">&sect; 03</span>
+          <span class="desc">The factors</span>
+        </div>
+
+        <div class="stack">
+          <h2 class="d-l">Six factors set your limits.</h2>
+          <p class="prose">
+            Ranked by how quickly you can actually move each one, because that is the only ordering that
+            changes what you do this month. The top of this list is where a few weeks of work shows up.
+          </p>
+
+          <ol class="ranked">
+            <li>
+              <span class="n">01</span>
+              <div>
+                <h3>Credit utilization</h3>
+                <p>How much of your existing revolving credit is drawn. It is judged on the day your file is pulled, not on your plans for next month.</p>
+              </div>
+              <span class="speed">Weeks</span>
+            </li>
+            <li>
+              <span class="n">02</span>
+              <div>
+                <h3>Recent inquiries</h3>
+                <p>How many applications you have submitted lately and how they were spaced. Sequence and timing are things you control completely.</p>
+              </div>
+              <span class="speed">Immediate</span>
+            </li>
+            <li>
+              <span class="n">03</span>
+              <div>
+                <h3>Entity and EIN setup</h3>
+                <p>Registered entity, EIN, business bank account, and details that match across every record. Mismatches read as risk.</p>
+              </div>
+              <span class="speed">Days to weeks</span>
+            </li>
+            <li>
+              <span class="n">04</span>
+              <div>
+                <h3>Documentation on hand</h3>
+                <p>Statements, returns, formation papers. Not a scoring factor exactly, but the most common reason a file stalls mid-review.</p>
+              </div>
+              <span class="speed">Days</span>
+            </li>
+            <li>
+              <span class="n">05</span>
+              <div>
+                <h3>Personal credit profile</h3>
+                <p>Score band, payment history, derogatory marks. Carries the most weight of anything here, and moves the slowest.</p>
+              </div>
+              <span class="speed">Months</span>
+            </li>
+            <li>
+              <span class="n">06</span>
+              <div>
+                <h3>Time in business and revenue</h3>
+                <p>How long the entity has operated and how consistent its deposits are. This gates which instruments are open to you at all.</p>
+              </div>
+              <span class="speed">Not on demand</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTENTS ============ -->
+  <section class="band">
+    <div class="doc">
+      <div class="band-inner">
+        <div class="rail">
+          <span class="sec">&sect; 04</span>
+          <span class="desc">Contents</span>
+        </div>
+
+        <div class="stack">
+          <h2 class="d-l">What the checklist covers.</h2>
+          <p class="prose">
+            Six pages, built to be printed and worked through with a pen before you apply for anything.
+          </p>
+
+          <ol class="index">
+            <li><span class="sec">01</span><span>The document pack to assemble first</span></li>
+            <li><span class="sec">02</span><span>Entity and EIN readiness, including the items that get missed</span></li>
+            <li><span class="sec">03</span><span>Credit profile prep, in the order worth doing it</span></li>
+            <li><span class="sec">04</span><span>Matching the instrument to what the money is for</span></li>
+            <li><span class="sec">05</span><span>Six reasons applications get declined, and the fix for each</span></li>
+            <li><span class="sec">06</span><span>Questions to ask before you accept any offer</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FIT ============ -->
+  <section class="band">
+    <div class="doc">
+      <div class="band-inner">
+        <div class="rail">
+          <span class="sec">&sect; 05</span>
+          <span class="desc">Fit</span>
+        </div>
+
+        <div class="stack">
+          <h2 class="d-l">Worth reading, or worth skipping.</h2>
+
+          <div class="split">
+            <div>
+              <h3 class="label">Read it if</h3>
+              <ul class="yes">
+                <li><span class="mk">&#10003;</span><span>You own a registered business, or you are about to register one.</span></li>
+                <li><span class="mk">&#10003;</span><span>You have a specific use for the capital and a plan to repay it.</span></li>
+                <li><span class="mk">&#10003;</span><span>Your personal credit is workable, or you are willing to work on it.</span></li>
+                <li><span class="mk">&#10003;</span><span>You would rather understand the process than be sold on it.</span></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="label">Skip it if</h3>
+              <ul class="no">
+                <li><span class="mk">&#10007;</span><span>You want funding with no personal guarantee and no documentation.</span></li>
+                <li><span class="mk">&#10007;</span><span>You need money this week for something already past due.</span></li>
+                <li><span class="mk">&#10007;</span><span>You are expecting a guaranteed approval or a guaranteed number. No one can offer that.</span></li>
+                <li><span class="mk">&#10007;</span><span>You are looking for credit repair. Different service, and we are not it.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RECORD ============ -->
+  <section class="band">
+    <div class="doc">
+      <div class="band-inner">
+        <div class="rail">
+          <span class="sec">&sect; 06</span>
+          <span class="desc">Record</span>
+        </div>
+
+        <div class="stack">
+          <h2 class="d-l">What owners did after they prepared.</h2>
+
+          <div class="proof">
+            <div>
+              <span class="label">Client</span>
+              <p><span class="fill">[FILL: first name, last initial]</span></p>
+              <p class="prose"><span class="fill">[FILL: what they secured, over what timeframe]</span></p>
+              <p class="prose"><span class="fill">[FILL: one line in their own words]</span></p>
+            </div>
+            <div>
+              <span class="label">Client</span>
+              <p><span class="fill">[FILL: first name, last initial]</span></p>
+              <p class="prose"><span class="fill">[FILL: what they secured, over what timeframe]</span></p>
+              <p class="prose"><span class="fill">[FILL: one line in their own words]</span></p>
+            </div>
+            <div>
+              <span class="label">Client</span>
+              <p><span class="fill">[FILL: first name, last initial]</span></p>
+              <p class="prose"><span class="fill">[FILL: what they secured, over what timeframe]</span></p>
+              <p class="prose"><span class="fill">[FILL: one line in their own words]</span></p>
+            </div>
+          </div>
+
+          <div class="buildnote">
+            <b>Build note, delete this block before launch.</b> Every bracketed slot above is a placeholder.
+            Replace them with real, documented outcomes and keep written permission on file for each. If there
+            are no testimonials yet, delete this whole section rather than softening the placeholders. An empty
+            section is fine. An invented one is not.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUESTIONS ============ -->
+  <section class="band">
+    <div class="doc">
+      <div class="band-inner">
+        <div class="rail">
+          <span class="sec">&sect; 07</span>
+          <span class="desc">Questions</span>
+        </div>
+
+        <div class="stack">
+          <h2 class="d-l">Before you download.</h2>
+
+          <div class="qa">
+            <details open>
+              <summary>Is this a loan from X Enterprises?</summary>
+              <p>
+                No. X Enterprises is a funding consultant. We help you prepare the file, understand the
+                options, and apply in a sensible order. Any credit extended comes from third-party banks and
+                issuers, on their terms and at their discretion.
+              </p>
+            </details>
+            <details>
+              <summary>Does downloading this affect my credit?</summary>
+              <p>
+                No. A checklist is not an application. Nothing on this page involves a credit pull of any kind.
+              </p>
+            </details>
+            <details>
+              <summary>Can you guarantee approval, or tell me my number?</summary>
+              <p>
+                No, and be careful with anyone who does. Approvals and limits are set by the issuer based on
+                your file at the moment you apply. What we can do is make sure you understand what is being
+                read and that the file is in the best shape it can be first.
+              </p>
+            </details>
+            <details>
+              <summary>What does working with you cost?</summary>
+              <p>
+                It depends which path fits, so we cover it on the call rather than posting a number that would
+                not apply to you. You get the fee structure in plain terms before you are asked to decide
+                anything.
+              </p>
+            </details>
+            <details>
+              <summary>What if my credit is not good right now?</summary>
+              <p>
+                Then this is the most useful thing you will read this week, because it shows which factors to
+                address and in what order. To be clear about what we are not: we are not a credit repair
+                organization and we do not dispute items on your report.
+              </p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSE ============ -->
+  <section class="band close">
+    <div class="doc">
+      <div class="band-inner">
+        <div class="rail">
+          <span class="sec">&sect; 08</span>
+          <span class="desc">Request</span>
+        </div>
+
+        <div class="close-grid">
+          <div class="stack">
+            <h2 class="d-l">Read it first. Decide about a conversation after.</h2>
+            <p class="prose">
+              The checklist stands on its own, and plenty of owners execute it without ever speaking to us.
+              If you get through it and want a second read on where you actually stand, there is an option to
+              book a call on the next page. That order is deliberate.
+            </p>
+          </div>
+
+          <div class="form-block">
+            <div class="form-head">
+              <span>Request the file</span>
+              <span>No credit pull</span>
+            </div>
+            <div class="form-body">
+              <h2 class="d-m">Business Funding Readiness Checklist</h2>
+              <p class="note">Opens immediately after you submit.</p>
+
+              <form id="optin-form-2" novalidate>
+                <p class="form-error" id="optin-error-2" role="alert"></p>
+
+                <div class="field">
+                  <label class="label" for="firstName2">First name</label>
+                  <input type="text" id="firstName2" name="firstName" autocomplete="given-name" required>
+                </div>
+
+                <div class="field">
+                  <label class="label" for="email2">Email</label>
+                  <input type="email" id="email2" name="email" autocomplete="email" required>
+                </div>
+
+                <div class="field">
+                  <label class="label" for="phone2">Mobile</label>
+                  <input type="tel" id="phone2" name="phone" autocomplete="tel" required>
+                </div>
+
+                <div class="hp" aria-hidden="true">
+                  <label for="companyWebsite2">Company website</label>
+                  <input type="text" id="companyWebsite2" name="companyWebsite" tabindex="-1" autocomplete="off">
+                </div>
+
+                <button class="btn" type="submit">
+                  Open the checklist <span class="arrow">&rarr;</span>
+                </button>
+                <p class="microcopy">No credit check &middot; No application &middot; Unsubscribe any time</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COLOPHON ============ -->
+  <footer class="colophon">
+    <div class="doc">
+      <div class="colophon-grid">
+        <span class="sec">Notices</span>
+        <div class="colophon-body">
+          <p>
+            <b>X Enterprises LLC</b> &middot; <span class="fill">[FILL: business address]</span> &middot;
+            <span class="fill">[FILL: phone]</span> &middot; <span class="fill">[FILL: email]</span>
+          </p>
+          <p>
+            X Enterprises LLC is a business funding consultant. <b>We are not a bank, lender, or credit
+            issuer.</b> All credit is extended by third-party banks and issuers under their own underwriting
+            standards and terms. We do not guarantee approval, funding amounts, rates, or timelines. Those
+            decisions belong to the issuer and depend on your individual file at the time of application.
+            Individual results vary.
+          </p>
+          <p>
+            X Enterprises LLC is not a credit repair organization. We do not offer credit repair services,
+            dispute items on consumer reports, or promise any change to your credit score. Nothing on this
+            page is legal, tax, or financial advice. Business credit cards and lines of credit typically
+            require a personal guarantee.
+          </p>
+          <p>
+            By submitting your information you agree to be contacted by X Enterprises LLC by phone, email,
+            and SMS at the details you provide, including by automated means. Consent is not a condition of
+            any purchase. Message and data rates may apply. Reply STOP to opt out.
+            <span class="fill">[FILL: privacy policy link]</span>
+            <span class="fill">[FILL: terms link]</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ------------------------------------------------------------------
+       WIRING — set these and the funnel is live.
+
+       GHL_WEBHOOK_URL
+         GoHighLevel > Automation > Workflows > add an "Inbound Webhook"
+         trigger, then paste its URL here. Leads POST as JSON.
+         Left unset, submissions log to the browser console and the visitor
+         still advances, so the flow can be walked end to end.
+
+       THANK_YOU_URL
+         Where the opt-in sends people. Only change if you rename files.
+    ------------------------------------------------------------------ */
+    const CONFIG = {
+      GHL_WEBHOOK_URL: 'PASTE_GHL_INBOUND_WEBHOOK_URL_HERE',
+      THANK_YOU_URL: './x-enterprises-funding-thankyou-v1.html',
+      SOURCE: 'x-enterprises-funding-landing-v1'
+    };
+
+    const STORAGE_KEY = 'xe_funding_lead';
+
+    function isConfigured(value) {
+      return typeof value === 'string' && value.indexOf('PASTE_') !== 0 && value.trim() !== '';
+    }
+
+    function emailLooksValid(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+    }
+
+    function digitsOnly(value) {
+      return value.replace(/\D/g, '');
+    }
+
+    function sendToGhl(payload) {
+      if (!isConfigured(CONFIG.GHL_WEBHOOK_URL)) {
+        console.warn('[X Enterprises] GHL webhook not configured. Payload:', payload);
+        return Promise.resolve(false);
+      }
+
+      return fetch(CONFIG.GHL_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        /* The page navigates as soon as this resolves. keepalive stops the
+           browser cancelling the request mid-flight during that navigation. */
+        keepalive: true
+      })
+        .then(function (response) { return response.ok; })
+        .catch(function (error) {
+          console.error('[X Enterprises] Lead POST failed:', error);
+          return false;
+        });
+    }
+
+    function wireOptin(formId, errorId) {
+      const form = document.getElementById(formId);
+      if (!form) { return; }
+
+      const errorBox = document.getElementById(errorId);
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      function fieldValue(name) {
+        return form.querySelector('[name="' + name + '"]').value.trim();
+      }
+
+      function markInvalid(name, invalid) {
+        form.querySelector('[name="' + name + '"]').setAttribute('aria-invalid', invalid ? 'true' : 'false');
+      }
+
+      function showError(message) {
+        errorBox.textContent = message;
+        errorBox.classList.add('show');
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        errorBox.classList.remove('show');
+
+        const lead = {
+          firstName: fieldValue('firstName'),
+          email: fieldValue('email'),
+          phone: fieldValue('phone')
+        };
+
+        /* Honeypot. Real people never fill a field they cannot see. */
+        if (fieldValue('companyWebsite') !== '') { return; }
+
+        markInvalid('firstName', !lead.firstName);
+        markInvalid('email', !emailLooksValid(lead.email));
+        markInvalid('phone', digitsOnly(lead.phone).length < 10);
+
+        if (!lead.firstName) { showError('Enter your first name to continue.'); return; }
+        if (!emailLooksValid(lead.email)) { showError('That email address is not valid. Check for a typo.'); return; }
+        if (digitsOnly(lead.phone).length < 10) { showError('Enter a 10-digit mobile number.'); return; }
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Opening';
+
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(lead));
+        } catch (error) {
+          console.warn('[X Enterprises] localStorage unavailable, continuing.', error);
+        }
+
+        sendToGhl({
+          firstName: lead.firstName,
+          email: lead.email,
+          phone: lead.phone,
+          source: CONFIG.SOURCE,
+          event: 'checklist_optin',
+          pageUrl: window.location.href
+        }).then(function () {
+          window.location.href = CONFIG.THANK_YOU_URL;
+        });
+      });
+    }
+
+    wireOptin('optin-form', 'optin-error');
+    wireOptin('optin-form-2', 'optin-error-2');
+  </script>
+</body>
+</html>

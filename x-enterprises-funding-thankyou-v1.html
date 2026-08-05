@@ -1,0 +1,1478 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>File Released | X Enterprises LLC</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       X ENTERPRISES — FILE RELEASED / BOOKING
+       Same ledger system as the landing page. Ink on stock,
+       hairline rules, no cards, no shadows, no rounded corners.
+       ============================================================ */
+
+    :root {
+      --paper:      #f4f5f1;
+      --paper-2:    #ffffff;
+      --bar:        #dce7da;
+      --bar-soft:   #eaf0e7;
+      --rule:       #c3cdbf;
+      --rule-soft:  #dde3d9;
+      --ink:        #141a12;
+      --ink-2:      #3c463a;
+      --ink-3:      #6b7568;
+      --blue:       #1b3bc7;
+      --blue-deep:  #142c95;
+      --blue-wash:  #e7eafa;
+      --stamp:      #b02a15;
+      --stamp-wash: #faebe7;
+      --amber:      #8a5b0a;
+      --amber-wash: #f7efdc;
+
+      --measure: 68ch;
+      --rail: 128px;
+      --gutter: 40px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper:      #0e120d;
+        --paper-2:    #141a13;
+        --bar:        #1b241a;
+        --bar-soft:   #161d15;
+        --rule:       #2f392d;
+        --rule-soft:  #232c22;
+        --ink:        #edf0ea;
+        --ink-2:      #b8c2b4;
+        --ink-3:      #87917f;
+        --blue:       #8ba0ff;
+        --blue-deep:  #a9b8ff;
+        --blue-wash:  #171e3b;
+        --stamp:      #ff8f70;
+        --stamp-wash: #2a1611;
+        --amber:      #e5b45c;
+        --amber-wash: #241c0c;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      font-synthesis-weight: none;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0;
+      font-family: Archivo, "Public Sans", ui-sans-serif, system-ui, sans-serif;
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      text-wrap: balance;
+    }
+
+    p, ul, ol, table, dl {
+      margin: 0;
+    }
+
+    a {
+      color: var(--blue);
+      text-underline-offset: 3px;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    /* ---------- document frame ---------- */
+
+    .doc {
+      width: min(1180px, 100% - 36px);
+      margin: 0 auto;
+    }
+
+    .band {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .band-inner {
+      display: grid;
+      grid-template-columns: var(--rail) minmax(0, 1fr);
+      gap: var(--gutter);
+      padding: 62px 0;
+    }
+
+    .rail {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-top: 5px;
+    }
+
+    .rail .sec {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+
+    .rail .desc {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+      color: var(--ink-3);
+      text-transform: uppercase;
+    }
+
+    .label {
+      display: block;
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .d-xl { font-size: clamp(2.2rem, 4.6vw, 3.4rem); font-weight: 800; letter-spacing: -0.032em; }
+    .d-l  { font-size: clamp(1.8rem, 3.3vw, 2.5rem); font-weight: 700; letter-spacing: -0.03em; }
+    .d-m  { font-size: 1.28rem; font-weight: 700; letter-spacing: -0.02em; }
+
+    .prose {
+      max-width: var(--measure);
+      color: var(--ink-2);
+    }
+
+    .prose.lead {
+      font-size: 1.14rem;
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    /* ---------- masthead ---------- */
+
+    .masthead {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 2px solid var(--ink);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .masthead .org {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .masthead .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      color: var(--ink-3);
+    }
+
+    /* ---------- release band ---------- */
+
+    .release .band-inner {
+      padding: 60px 0 66px;
+    }
+
+    .release h1 {
+      margin-bottom: 22px;
+    }
+
+    .stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 26px;
+      padding: 7px 13px;
+      border: 1px solid var(--blue);
+      background: var(--blue-wash);
+      color: var(--blue);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 24px;
+      border: 0;
+      border-radius: 0;
+      background: var(--blue);
+      color: #fff;
+      font-family: Archivo, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--blue-deep);
+    }
+
+    .btn[disabled] {
+      opacity: 0.6;
+      cursor: progress;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+    }
+
+    .btn.secondary:hover {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .btn .arrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+    }
+
+    .btn.full {
+      width: 100%;
+    }
+
+    /* ---------- sequence (what happens on the call) ---------- */
+
+    .sequence {
+      width: 100%;
+      border-top: 2px solid var(--ink);
+    }
+
+    .sequence li {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 24px;
+      align-items: baseline;
+      padding: 18px 14px;
+      border-bottom: 1px solid var(--rule-soft);
+      list-style: none;
+    }
+
+    .sequence li:nth-child(odd) {
+      background: var(--bar-soft);
+    }
+
+    .sequence .n {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.04em;
+      color: var(--blue);
+    }
+
+    .sequence h3 {
+      font-size: 1.02rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .sequence p {
+      margin-top: 3px;
+      max-width: 62ch;
+      color: var(--ink-2);
+      font-size: 15.5px;
+      line-height: 1.5;
+    }
+
+    /* ---------- is / is not split ---------- */
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 100%;
+      border-top: 2px solid var(--ink);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .split > div {
+      padding: 22px 28px 24px 0;
+    }
+
+    .split > div + div {
+      padding-left: 28px;
+      border-left: 1px solid var(--rule);
+    }
+
+    .split h3 {
+      margin-bottom: 12px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+
+    .split p {
+      max-width: 52ch;
+      color: var(--ink-2);
+      font-size: 15.5px;
+    }
+
+    /* ---------- qualifier ---------- */
+
+    .qualify-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+      gap: 0;
+      width: 100%;
+      border: 2px solid var(--ink);
+      background: var(--paper-2);
+    }
+
+    .pane-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 22px;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .pane + .pane {
+      border-left: 1px solid var(--ink);
+    }
+
+    /* the ink header bars butt together, so the seam needs its own light rule */
+    .pane + .pane .pane-head {
+      box-shadow: inset 1px 0 0 rgba(244, 245, 241, 0.34);
+    }
+
+    .pane-body {
+      padding: 22px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid var(--rule);
+      border-bottom-width: 2px;
+      border-radius: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .field select {
+      appearance: none;
+      padding-right: 34px;
+      background-image: linear-gradient(45deg, transparent 50%, var(--ink-3) 50%), linear-gradient(135deg, var(--ink-3) 50%, transparent 50%);
+      background-position: calc(100% - 17px) calc(50% + 1px), calc(100% - 12px) calc(50% + 1px);
+      background-size: 5px 5px, 5px 5px;
+      background-repeat: no-repeat;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--blue);
+      background-color: var(--paper-2);
+      outline: none;
+      box-shadow: inset 0 -2px 0 var(--blue);
+    }
+
+    .field input[aria-invalid="true"] {
+      border-color: var(--stamp);
+      background-color: var(--stamp-wash);
+    }
+
+    .pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+      color: var(--ink-3);
+    }
+
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .hp {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .microcopy {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10.5px;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      text-align: center;
+    }
+
+    /* ---------- readout ---------- */
+
+    .readout {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 22px;
+    }
+
+    .verdict {
+      padding: 16px 18px;
+      border-left: 3px solid var(--blue);
+      background: var(--blue-wash);
+    }
+
+    .verdict strong {
+      display: block;
+      margin-bottom: 6px;
+      font-family: Archivo, sans-serif;
+      font-size: 1.14rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--blue);
+    }
+
+    .verdict span {
+      color: var(--ink-2);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .verdict.path-prep {
+      border-left-color: var(--amber);
+      background: var(--amber-wash);
+    }
+
+    .verdict.path-prep strong {
+      color: var(--amber);
+    }
+
+    .verdict.path-foundation {
+      border-left-color: var(--stamp);
+      background: var(--stamp-wash);
+    }
+
+    .verdict.path-foundation strong {
+      color: var(--stamp);
+    }
+
+    /* the summary reads as a statement: label left, value right, ruled */
+
+    .summary {
+      border-top: 1px solid var(--rule);
+    }
+
+    .summary div {
+      display: grid;
+      grid-template-columns: 122px minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+
+    .summary div:nth-child(odd) {
+      background: var(--bar-soft);
+    }
+
+    .summary small {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .summary b {
+      font-size: 14.5px;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink);
+    }
+
+    .agenda h4 {
+      margin-bottom: 10px;
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .agenda ul {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .agenda li {
+      display: grid;
+      grid-template-columns: 18px minmax(0, 1fr);
+      gap: 10px;
+      color: var(--ink-2);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .agenda li::before {
+      content: "\2014";
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      color: var(--blue);
+      padding-top: 2px;
+    }
+
+    .fineprint {
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      color: var(--ink-3);
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+
+    /* ---------- calendar ---------- */
+
+    .cal-frame {
+      width: 100%;
+      border: 2px solid var(--ink);
+      background: var(--paper-2);
+    }
+
+    .cal-frame iframe {
+      display: block;
+      width: 100%;
+      min-height: 740px;
+      border: 0;
+    }
+
+    .cal-locked,
+    .cal-missing {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      padding: 40px 28px;
+      border: 1px dashed var(--rule);
+      background: var(--bar-soft);
+    }
+
+    .cal-missing {
+      border-color: var(--blue);
+      background: var(--blue-wash);
+    }
+
+    .cal-locked strong,
+    .cal-missing strong {
+      font-family: Archivo, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .cal-missing strong {
+      color: var(--blue);
+    }
+
+    .cal-locked span,
+    .cal-missing span {
+      max-width: 62ch;
+      color: var(--ink-2);
+      font-size: 15px;
+    }
+
+    .cal-missing code {
+      padding: 1px 5px;
+      background: var(--paper-2);
+      box-shadow: inset 0 0 0 1px var(--blue);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12.5px;
+      color: var(--blue);
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .fill {
+      display: inline;
+      padding: 1px 5px;
+      background: var(--blue-wash);
+      box-shadow: inset 0 0 0 1px var(--blue);
+      color: var(--blue);
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11.5px;
+      font-weight: 500;
+    }
+
+    /* ---------- colophon ---------- */
+
+    .colophon {
+      background: var(--ink);
+      color: #8d9789;
+      padding: 40px 0 56px;
+    }
+
+    .colophon-grid {
+      display: grid;
+      grid-template-columns: var(--rail) minmax(0, 1fr);
+      gap: var(--gutter);
+    }
+
+    .colophon .sec {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--paper);
+    }
+
+    .colophon-body {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 88ch;
+    }
+
+    .colophon p {
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    .colophon b {
+      color: var(--paper);
+      font-weight: 600;
+    }
+
+    .colophon .fill {
+      background: transparent;
+      box-shadow: inset 0 0 0 1px #4a5447;
+      color: #b9c3b4;
+    }
+
+    /* ---------- responsive ---------- */
+
+    @media (max-width: 980px) {
+      .qualify-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .pane + .pane {
+        border-left: 0;
+        border-top: 1px solid var(--ink);
+      }
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --rail: 0px;
+        --gutter: 0px;
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .band-inner,
+      .colophon-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+      }
+
+      .band-inner,
+      .release .band-inner {
+        padding: 44px 0;
+      }
+
+      .rail {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px 14px;
+        padding-top: 0;
+      }
+
+      .split {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .split > div {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--rule-soft);
+      }
+
+      .split > div + div {
+        padding-left: 0;
+        border-left: 0;
+      }
+
+      .sequence li {
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 14px;
+        padding: 16px 10px;
+      }
+
+      .pair {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .summary div {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2px;
+      }
+
+      .cal-frame iframe {
+        min-height: 920px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ MASTHEAD ============ -->
+  <div class="doc">
+    <div class="masthead">
+      <span class="org">X Enterprises LLC</span>
+      <span class="meta">
+        <span>File: Business funding readiness</span>
+        <span><span class="fill">[FILL: phone]</span></span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ============ RELEASE ============ -->
+  <section class="band release">
+    <div class="doc">
+      <div class="band-inner">
+        <div class="rail">
+          <span class="sec">&sect; 00</span>
+          <span class="desc">Released</span>
+        </div>
+
+        <div>
+          <span class="stamp">File released</span>
+          <h1 class="d-xl">Here is the checklist<span id="first-name-slot"></span>.</h1>
+          <p class="prose lead">
+            Open it and print it. A copy is on its way to your email as well. Work through it with a pen
+            before you apply for anything, because the order you do these in changes the outcome.
+          </p>
+
+          <div class="actions">
+            <a class="btn" href="./x-enterprises-funding-checklist-v1.html" target="_blank" rel="noopener">
+              Open the checklist <span class="arrow">&rarr;</span>
+            </a>
+            <a class="btn secondary" href="#book">Book a strategy call</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE CALL ============ -->
+  <section class="band">
+    <div class="doc">
+      <div class="band-inner">
+        <div class="rail">
+          <span class="sec">&sect; 01</span>
+          <span class="desc">Optional</span>
+        </div>
+
+        <div class="stack">
+          <h2 class="d-l">The checklist says what gets read. A call says where you stand against it.</h2>
+          <p class="prose">
+            Twenty minutes, no cost, no credit pull. Most of the value is in the third step, which is the
+            part almost nobody does for themselves.
+          </p>
+
+          <ol class="sequence">
+            <li>
+              <span class="n">01</span>
+              <div>
+                <h3>We read your current position</h3>
+                <p>Entity setup, time in business, the shape of your revenue, your personal profile, and what you already have open.</p>
+              </div>
+            </li>
+            <li>
+              <span class="n">02</span>
+              <div>
+                <h3>We rule things in and out</h3>
+                <p>Which of the three instruments your situation actually supports right now, and which ones are not worth an application yet.</p>
+              </div>
+            </li>
+            <li>
+              <span class="n">03</span>
+              <div>
+                <h3>You leave with a sequence</h3>
+                <p>What to fix, in what order, and what to apply for first. Yours to execute with us or without us.</p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="split">
+            <div>
+              <h3 class="label">What it is</h3>
+              <p>
+                A working conversation about your file. If we are a fit to help you execute it, we will say
+                so and tell you what that costs. If you are better off handling it yourself, we will say that
+                instead. It happens often and it costs you nothing to hear.
+              </p>
+            </div>
+            <div>
+              <h3 class="label">What it is not</h3>
+              <p>
+                Not an application. Nothing on the call pulls your credit. We will not quote you an approval
+                amount, because nobody can do that honestly before an issuer has reviewed your file.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUALIFIER ============ -->
+  <section class="band" id="book">
+    <div class="doc">
+      <div class="band-inner">
+        <div class="rail">
+          <span class="sec">&sect; 02</span>
+          <span class="desc">Intake</span>
+        </div>
+
+        <div class="stack">
+          <h2 class="d-l">Six answers, then the calendar.</h2>
+          <p class="prose">
+            About thirty seconds. It means we have read your situation before you dial in, and you get a
+            read on your likely path immediately, whether or not you book.
+          </p>
+
+          <div class="qualify-grid">
+            <div class="pane">
+              <div class="pane-head">
+                <span>Intake</span>
+                <span>No credit pull</span>
+              </div>
+              <div class="pane-body">
+                <form id="qualifier-form" novalidate>
+                  <div class="pair">
+                    <div class="field">
+                      <label class="label" for="entity">Entity</label>
+                      <select id="entity" name="entity">
+                        <option>LLC or Corporation</option>
+                        <option>Sole proprietor, no entity</option>
+                        <option>Not registered yet</option>
+                      </select>
+                    </div>
+
+                    <div class="field">
+                      <label class="label" for="timeInBusiness">Time in business</label>
+                      <select id="timeInBusiness" name="timeInBusiness">
+                        <option>2 years or more</option>
+                        <option>6 to 24 months</option>
+                        <option>Under 6 months</option>
+                        <option>Not operating yet</option>
+                      </select>
+                    </div>
+
+                    <div class="field">
+                      <label class="label" for="fico">Personal credit</label>
+                      <select id="fico" name="fico">
+                        <option>720 or above</option>
+                        <option>680 to 719</option>
+                        <option>640 to 679</option>
+                        <option>Below 640</option>
+                        <option>Not sure</option>
+                      </select>
+                    </div>
+
+                    <div class="field">
+                      <label class="label" for="revenue">Monthly revenue</label>
+                      <select id="revenue" name="revenue">
+                        <option>$50,000 or more</option>
+                        <option>$10,000 to $50,000</option>
+                        <option>Under $10,000</option>
+                        <option>Pre-revenue</option>
+                      </select>
+                    </div>
+
+                    <div class="field">
+                      <label class="label" for="capital">Capital sought</label>
+                      <select id="capital" name="capital">
+                        <option>Under $25,000</option>
+                        <option>$25,000 to $75,000</option>
+                        <option>$75,000 to $150,000</option>
+                        <option>Over $150,000</option>
+                      </select>
+                    </div>
+
+                    <div class="field">
+                      <label class="label" for="useOfFunds">Use of funds</label>
+                      <select id="useOfFunds" name="useOfFunds">
+                        <option>Inventory or supplies</option>
+                        <option>Equipment</option>
+                        <option>Marketing and advertising</option>
+                        <option>Payroll or cash-flow gap</option>
+                        <option>Expansion or new location</option>
+                        <option>Refinancing existing debt</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <span class="label divider">Contact</span>
+
+                  <div class="field">
+                    <label class="label" for="qFirstName">First name</label>
+                    <input type="text" id="qFirstName" name="firstName" autocomplete="given-name" required>
+                  </div>
+
+                  <div class="pair">
+                    <div class="field">
+                      <label class="label" for="qEmail">Email</label>
+                      <input type="email" id="qEmail" name="email" autocomplete="email" required>
+                    </div>
+
+                    <div class="field">
+                      <label class="label" for="qPhone">Mobile</label>
+                      <input type="tel" id="qPhone" name="phone" autocomplete="tel" required>
+                    </div>
+                  </div>
+
+                  <div class="hp" aria-hidden="true">
+                    <label for="qCompanyWebsite">Company website</label>
+                    <input type="text" id="qCompanyWebsite" name="companyWebsite" tabindex="-1" autocomplete="off">
+                  </div>
+
+                  <button class="btn full" type="submit" id="qualifier-submit">
+                    Open the calendar <span class="arrow">&rarr;</span>
+                  </button>
+                  <p class="microcopy">Informational only &middot; Not an application &middot; Not an offer of credit</p>
+                </form>
+              </div>
+            </div>
+
+            <div class="pane">
+              <div class="pane-head">
+                <span>Read</span>
+                <span>Updates live</span>
+              </div>
+              <div class="readout">
+                <div class="verdict" id="pathStatus">
+                  <strong>Business card track</strong>
+                  <span>Answer the questions on the left and this updates as you go.</span>
+                </div>
+
+                <div class="summary">
+                  <div><small>Entity</small><b id="outEntity">LLC or Corporation</b></div>
+                  <div><small>Time in business</small><b id="outTimeInBusiness">2 years or more</b></div>
+                  <div><small>Personal credit</small><b id="outFico">720 or above</b></div>
+                  <div><small>Monthly revenue</small><b id="outRevenue">$50,000 or more</b></div>
+                  <div><small>Capital sought</small><b id="outCapital">Under $25,000</b></div>
+                  <div><small>Use of funds</small><b id="outUseOfFunds">Inventory or supplies</b></div>
+                </div>
+
+                <div class="agenda">
+                  <h4>Agenda for your call</h4>
+                  <ul id="talkingPoints">
+                    <li>Which instruments your current file realistically supports.</li>
+                    <li>What to prepare before anything gets submitted.</li>
+                    <li>The order to apply in, and why the order matters.</li>
+                  </ul>
+                </div>
+
+                <p class="fineprint">
+                  This read is general educational guidance based on what you entered. It is not an approval,
+                  a pre-approval, an offer of credit, or a prediction of any amount. Only an issuer decides
+                  that, after reviewing your actual file.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CALENDAR ============ -->
+  <section class="band">
+    <div class="doc">
+      <div class="band-inner">
+        <div class="rail">
+          <span class="sec">&sect; 03</span>
+          <span class="desc">Booking</span>
+        </div>
+
+        <div class="stack">
+          <h2 class="d-l">Pick a time.</h2>
+          <p class="prose" id="calendar-lead">Complete the intake above and your available times appear here.</p>
+
+          <div class="cal-locked" id="calendar-locked">
+            <strong>Calendar opens after intake</strong>
+            <span>Thirty seconds of questions, then this fills in. It keeps the call useful for both of us.</span>
+          </div>
+
+          <div id="calendar-block" hidden>
+            <div class="cal-frame" id="calendar-frame"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COLOPHON ============ -->
+  <footer class="colophon">
+    <div class="doc">
+      <div class="colophon-grid">
+        <span class="sec">Notices</span>
+        <div class="colophon-body">
+          <p>
+            <b>X Enterprises LLC</b> &middot; <span class="fill">[FILL: business address]</span> &middot;
+            <span class="fill">[FILL: phone]</span> &middot; <span class="fill">[FILL: email]</span>
+          </p>
+          <p>
+            X Enterprises LLC is a business funding consultant. <b>We are not a bank, lender, or credit
+            issuer.</b> All credit is extended by third-party banks and issuers under their own underwriting
+            standards and terms. We do not guarantee approval, funding amounts, rates, or timelines.
+            Individual results vary. The path shown on this page is general educational information, not an
+            offer of credit or a pre-approval.
+          </p>
+          <p>
+            X Enterprises LLC is not a credit repair organization. We do not offer credit repair services or
+            promise any change to your credit score. Nothing on this page is legal, tax, or financial advice.
+            Business credit cards and lines of credit typically require a personal guarantee.
+          </p>
+          <p>
+            By submitting your information you agree to be contacted by X Enterprises LLC by phone, email,
+            and SMS at the details you provide, including by automated means. Consent is not a condition of
+            any purchase. Message and data rates may apply. Reply STOP to opt out.
+            <span class="fill">[FILL: privacy policy link]</span>
+            <span class="fill">[FILL: terms link]</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ------------------------------------------------------------------
+       WIRING — set these and booking goes live.
+
+       GHL_WEBHOOK_URL
+         The same GoHighLevel inbound webhook used on the landing page, or a
+         separate one for booked-call leads. Intake answers POST as JSON with
+         event: "qualifier_submitted".
+         Left unset, submissions log to the console and the calendar still
+         opens, so the flow can be demonstrated end to end.
+
+       GHL_CALENDAR_EMBED_URL
+         GoHighLevel > Calendars > your calendar > Share > copy the embed URL.
+         It looks like https://api.leadconnectorhq.com/widget/booking/XXXX
+         Left unset, a visible notice renders instead of a broken iframe.
+    ------------------------------------------------------------------ */
+    const CONFIG = {
+      GHL_WEBHOOK_URL: 'PASTE_GHL_INBOUND_WEBHOOK_URL_HERE',
+      GHL_CALENDAR_EMBED_URL: 'PASTE_GHL_CALENDAR_EMBED_URL_HERE',
+      SOURCE: 'x-enterprises-funding-thankyou-v1'
+    };
+
+    const STORAGE_KEY = 'xe_funding_lead';
+
+    const form = document.getElementById('qualifier-form');
+    const submitButton = document.getElementById('qualifier-submit');
+    const statusBox = document.getElementById('pathStatus');
+
+    /* Maps each input id to the element mirroring its value in the summary. */
+    const outputIds = {
+      entity: 'outEntity',
+      timeInBusiness: 'outTimeInBusiness',
+      fico: 'outFico',
+      revenue: 'outRevenue',
+      capital: 'outCapital',
+      useOfFunds: 'outUseOfFunds'
+    };
+
+    function isConfigured(value) {
+      return typeof value === 'string' && value.indexOf('PASTE_') !== 0 && value.trim() !== '';
+    }
+
+    function value(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function emailLooksValid(candidate) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(candidate);
+    }
+
+    function digitsOnly(candidate) {
+      return candidate.replace(/\D/g, '');
+    }
+
+    /* ---- carry the opt-in details across from the landing page ---- */
+
+    function prefillFromStorage() {
+      let lead = null;
+
+      try {
+        lead = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+      } catch (error) {
+        console.warn('[X Enterprises] Could not read stored lead.', error);
+      }
+
+      if (!lead) { return; }
+
+      if (lead.firstName) {
+        document.getElementById('qFirstName').value = lead.firstName;
+        document.getElementById('first-name-slot').textContent = ', ' + lead.firstName;
+      }
+      if (lead.email) { document.getElementById('qEmail').value = lead.email; }
+      if (lead.phone) { document.getElementById('qPhone').value = lead.phone; }
+    }
+
+    /* ---- classification ----
+       Educational routing only. Never names a dollar amount, never says
+       "approved", never implies an issuer decision. */
+
+    function classify(data) {
+      const noEntity = data.entity.indexOf('Not registered') === 0 || data.entity.indexOf('Sole proprietor') === 0;
+      const weakCredit = data.fico.indexOf('Below 640') === 0;
+      const unknownCredit = data.fico.indexOf('Not sure') === 0;
+      const strongCredit = data.fico.indexOf('720') === 0 || data.fico.indexOf('680') === 0;
+      const documented = data.timeInBusiness.indexOf('2 years') === 0 &&
+        (data.revenue.indexOf('$50,000') === 0 || data.revenue.indexOf('$10,000') === 0);
+      const preRevenue = data.revenue.indexOf('Pre-revenue') === 0;
+
+      statusBox.classList.remove('path-prep', 'path-foundation');
+
+      if (weakCredit) {
+        statusBox.classList.add('path-foundation');
+        return {
+          title: 'Foundation first',
+          detail: 'Personal credit carries the most weight on the products you would be applying for, so it ' +
+            'is the place to start. We will walk through which factors to address, and in what order, before ' +
+            'anything gets submitted.'
+        };
+      }
+
+      if (unknownCredit) {
+        statusBox.classList.add('path-prep');
+        return {
+          title: 'Pull your report first',
+          detail: 'Not knowing your score is not a problem. Applying without knowing it is. Your reports are ' +
+            'free at annualcreditreport.com and checking them yourself has no effect on your score. Pull them ' +
+            'before the call and we will work from real numbers.'
+        };
+      }
+
+      if (noEntity) {
+        statusBox.classList.add('path-prep');
+        return {
+          title: 'Entity setup, then cards',
+          detail: 'Your credit profile is workable, but funding in the business name needs the business to ' +
+            'exist properly first. Entity, EIN, business bank account, records that match. That is a short ' +
+            'runway, not a long one.'
+        };
+      }
+
+      if (documented && strongCredit) {
+        return {
+          title: 'Line of credit track',
+          detail: 'You have the two things a line of credit is underwritten on: operating history and ' +
+            'documented revenue. We will confirm the document pack and look at whether cards belong alongside it.'
+        };
+      }
+
+      if (preRevenue || data.timeInBusiness.indexOf('Not operating') === 0) {
+        statusBox.classList.add('path-prep');
+        return {
+          title: 'Startup track',
+          detail: 'With no revenue history yet, the realistic options lean on your personal profile. That can ' +
+            'be the right move for starting capital, but it is a trade worth making deliberately. We will walk ' +
+            'through both sides of it.'
+        };
+      }
+
+      return {
+        title: 'Business card track',
+        detail: 'Your file points toward card products first. They are underwritten mainly on personal credit ' +
+          'and need the lightest documentation. We will look at sequence and timing so the applications do not ' +
+          'work against each other.'
+      };
+    }
+
+    function agendaFor(data) {
+      const points = [];
+
+      if (data.entity.indexOf('LLC') !== 0) {
+        points.push('Getting the entity, EIN, and business bank account set up correctly.');
+      } else {
+        points.push('Confirming your entity records match across every source underwriting checks.');
+      }
+
+      if (data.fico.indexOf('Not sure') === 0) {
+        points.push('Pulling your three reports before the call so we work from real numbers.');
+      } else if (data.fico.indexOf('Below 640') === 0) {
+        points.push('Reading your personal credit profile and identifying what to address first.');
+      } else {
+        points.push('Where your current utilization and recent inquiries put you.');
+      }
+
+      if (data.revenue.indexOf('Pre-revenue') === 0) {
+        points.push('The honest trade-offs of personal-backed funding for a pre-revenue business.');
+      } else if (data.timeInBusiness.indexOf('2 years') === 0) {
+        points.push('Assembling the document pack a line of credit requires: statements, returns, history.');
+      } else {
+        points.push('Which instruments your time in business realistically opens up right now.');
+      }
+
+      points.push('Sequencing applications so the first one does not compromise the next.');
+      points.push('What ' + data.useOfFunds.toLowerCase() + ' typically calls for, and which instrument fits it.');
+
+      return points;
+    }
+
+    function renderReadout() {
+      const data = {
+        entity: value('entity'),
+        timeInBusiness: value('timeInBusiness'),
+        fico: value('fico'),
+        revenue: value('revenue'),
+        capital: value('capital'),
+        useOfFunds: value('useOfFunds')
+      };
+
+      Object.entries(outputIds).forEach(function (entry) {
+        document.getElementById(entry[1]).textContent = data[entry[0]];
+      });
+
+      const path = classify(data);
+      statusBox.querySelector('strong').textContent = path.title;
+      statusBox.querySelector('span').textContent = path.detail;
+
+      const list = document.getElementById('talkingPoints');
+      list.innerHTML = '';
+      agendaFor(data).forEach(function (point) {
+        const item = document.createElement('li');
+        item.textContent = point;
+        list.appendChild(item);
+      });
+
+      return { data: data, path: path };
+    }
+
+    /* ---- calendar ---- */
+
+    function revealCalendar(lead) {
+      const block = document.getElementById('calendar-block');
+      const frame = document.getElementById('calendar-frame');
+
+      document.getElementById('calendar-locked').hidden = true;
+      block.hidden = false;
+
+      if (!isConfigured(CONFIG.GHL_CALENDAR_EMBED_URL)) {
+        frame.className = 'cal-missing';
+        frame.innerHTML =
+          '<strong>Calendar not connected yet</strong>' +
+          '<span>Paste the GoHighLevel calendar embed URL into ' +
+          '<code>CONFIG.GHL_CALENDAR_EMBED_URL</code> in this file and booking goes live. ' +
+          'Everything else in this flow already works.</span>';
+        document.getElementById('calendar-lead').textContent =
+          'The booking widget renders here once the GoHighLevel calendar URL is set.';
+        block.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+
+      /* GHL accepts prefill params, so booking is not a second data entry. */
+      const separator = CONFIG.GHL_CALENDAR_EMBED_URL.indexOf('?') === -1 ? '?' : '&';
+      const params = new URLSearchParams({
+        first_name: lead.firstName || '',
+        email: lead.email || '',
+        phone: lead.phone || ''
+      });
+
+      const iframe = document.createElement('iframe');
+      iframe.src = CONFIG.GHL_CALENDAR_EMBED_URL + separator + params.toString();
+      iframe.title = 'Book your funding strategy call';
+      iframe.setAttribute('scrolling', 'no');
+      frame.appendChild(iframe);
+
+      document.getElementById('calendar-lead').textContent =
+        'Any time that works. You will get a confirmation and a reminder before the call.';
+      block.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* ---- submit ---- */
+
+    function sendToGhl(payload) {
+      if (!isConfigured(CONFIG.GHL_WEBHOOK_URL)) {
+        console.warn('[X Enterprises] GHL webhook not configured. Payload:', payload);
+        return Promise.resolve(false);
+      }
+
+      return fetch(CONFIG.GHL_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (response) { return response.ok; })
+        .catch(function (error) {
+          console.error('[X Enterprises] Intake POST failed:', error);
+          return false;
+        });
+    }
+
+    form.addEventListener('change', renderReadout);
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      /* Honeypot. Real people never fill a field they cannot see. */
+      if (value('qCompanyWebsite') !== '') { return; }
+
+      const lead = {
+        firstName: value('qFirstName'),
+        email: value('qEmail'),
+        phone: value('qPhone')
+      };
+
+      function flag(id, invalid) {
+        document.getElementById(id).setAttribute('aria-invalid', invalid ? 'true' : 'false');
+      }
+
+      flag('qFirstName', !lead.firstName);
+      flag('qEmail', !emailLooksValid(lead.email));
+      flag('qPhone', digitsOnly(lead.phone).length < 10);
+
+      if (!lead.firstName) { document.getElementById('qFirstName').focus(); return; }
+      if (!emailLooksValid(lead.email)) { document.getElementById('qEmail').focus(); return; }
+      if (digitsOnly(lead.phone).length < 10) { document.getElementById('qPhone').focus(); return; }
+
+      const result = renderReadout();
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Opening';
+
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(lead));
+      } catch (error) {
+        console.warn('[X Enterprises] localStorage unavailable, continuing.', error);
+      }
+
+      sendToGhl({
+        firstName: lead.firstName,
+        email: lead.email,
+        phone: lead.phone,
+        entity: result.data.entity,
+        timeInBusiness: result.data.timeInBusiness,
+        creditRange: result.data.fico,
+        monthlyRevenue: result.data.revenue,
+        capitalSought: result.data.capital,
+        useOfFunds: result.data.useOfFunds,
+        fundingPath: result.path.title,
+        source: CONFIG.SOURCE,
+        event: 'qualifier_submitted',
+        pageUrl: window.location.href
+      }).then(function () {
+        submitButton.textContent = 'Calendar open below';
+        revealCalendar(lead);
+      });
+    });
+
+    prefillFromStorage();
+    renderReadout();
+  </script>
+</body>
+</html>
