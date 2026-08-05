@@ -1,0 +1,1272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business Funding Readiness Checklist | X Enterprises LLC</title>
+  <meta name="description" content="Learn how business credit cards, business lines of credit, and personal-backed funding actually work — and what issuers look at before they approve you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #101828;
+      --muted: #536273;
+      --line: #d8e1e8;
+      --paper: #f4f7f8;
+      --white: #ffffff;
+      --navy: #0b1b2b;
+      --navy-2: #12283d;
+      --green: #0f9d58;
+      --green-deep: #0a7a43;
+      --green-soft: #e8f6ee;
+      --gold: #b78321;
+      --gold-soft: #fff5dc;
+      --red: #a6422d;
+      --red-soft: #fdeeea;
+      --shadow: 0 18px 58px rgba(16, 24, 40, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    ol {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+      letter-spacing: 0;
+      line-height: 1.1;
+    }
+
+    a {
+      color: var(--green-deep);
+    }
+
+    .shell {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin-bottom: 10px;
+      color: var(--green-deep);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    section {
+      padding: 62px 0;
+    }
+
+    section + section {
+      border-top: 1px solid var(--line);
+    }
+
+    section h2 {
+      margin-bottom: 12px;
+      font-size: clamp(26px, 3.4vw, 34px);
+    }
+
+    section > .shell > p.lead {
+      max-width: 720px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* ---------- hero ---------- */
+
+    .hero {
+      padding: 0;
+      border-top: 0;
+      background: linear-gradient(140deg, #0b1b2b 0%, #12283d 58%, #0d3b2c 100%);
+      color: var(--white);
+    }
+
+    .hero .shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+      gap: 44px;
+      align-items: start;
+      padding: 30px 0 66px;
+    }
+
+    .brandbar {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 34px;
+    }
+
+    .brandbar .mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .brandbar .mark i {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--green);
+      color: #04140c;
+      font-style: normal;
+      font-weight: 800;
+    }
+
+    .brandbar .contact {
+      color: #a9bccd;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      margin-bottom: 16px;
+      font-size: clamp(34px, 5.2vw, 52px);
+    }
+
+    .hero h1 em {
+      color: #6ee7a8;
+      font-style: normal;
+    }
+
+    .hero .sub {
+      max-width: 560px;
+      margin-bottom: 26px;
+      color: #cdd9e5;
+      font-size: 18px;
+    }
+
+    .hero ul {
+      display: grid;
+      gap: 11px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero li {
+      position: relative;
+      padding-left: 30px;
+      color: #e3ebf3;
+      font-size: 15.5px;
+      font-weight: 600;
+    }
+
+    .hero li::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 16px;
+      height: 8px;
+      border-left: 3px solid #6ee7a8;
+      border-bottom: 3px solid #6ee7a8;
+      transform: rotate(-45deg);
+    }
+
+    /* ---------- opt-in card ---------- */
+
+    .optin {
+      position: sticky;
+      top: 22px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 26px 70px rgba(4, 12, 20, 0.42);
+      color: var(--ink);
+    }
+
+    .optin h2 {
+      margin-bottom: 6px;
+      font-size: 23px;
+    }
+
+    .optin .optin-sub {
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    label {
+      color: #334355;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 46px;
+      padding: 11px 12px;
+      border: 1px solid #c8d4dd;
+      border-radius: 6px;
+      background: var(--white);
+      color: var(--ink);
+      font: inherit;
+      font-size: 16px;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--green);
+      outline: 3px solid rgba(15, 157, 88, 0.2);
+    }
+
+    input[aria-invalid="true"] {
+      border-color: var(--red);
+      background: var(--red-soft);
+    }
+
+    .hp {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    button {
+      min-height: 54px;
+      padding: 14px 18px;
+      border: 0;
+      border-radius: 6px;
+      background: var(--green);
+      color: #04140c;
+      font: inherit;
+      font-size: 16.5px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(15, 157, 88, 0.26);
+    }
+
+    button:hover {
+      background: var(--green-deep);
+      color: var(--white);
+    }
+
+    button:focus-visible {
+      outline: 3px solid rgba(15, 157, 88, 0.32);
+      outline-offset: 2px;
+    }
+
+    button[disabled] {
+      opacity: 0.65;
+      cursor: progress;
+    }
+
+    .microtrust {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12.5px;
+      text-align: center;
+    }
+
+    .form-error {
+      display: none;
+      margin: 0;
+      padding: 10px 12px;
+      border: 1px solid #eec3b7;
+      border-radius: 6px;
+      background: var(--red-soft);
+      color: var(--red);
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+
+    .form-error.show {
+      display: block;
+    }
+
+    /* ---------- generic blocks ---------- */
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .card p:last-child,
+    .card ul:last-child {
+      margin-bottom: 0;
+    }
+
+    .card p,
+    .card li {
+      color: #344456;
+      font-size: 15px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green-deep);
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tag.gold {
+      background: var(--gold-soft);
+      color: #8a610f;
+    }
+
+    .tag.navy {
+      background: #e6ecf2;
+      color: var(--navy-2);
+    }
+
+    /* ---------- problem ---------- */
+
+    .problem {
+      background: var(--white);
+    }
+
+    .problem .grid {
+      margin-bottom: 26px;
+    }
+
+    .problem .card {
+      box-shadow: none;
+      background: var(--paper);
+    }
+
+    .callout {
+      padding: 22px 24px;
+      border: 1px solid #cfe6da;
+      border-left: 4px solid var(--green);
+      border-radius: 8px;
+      background: var(--green-soft);
+    }
+
+    .callout p {
+      margin-bottom: 0;
+      color: #14402a;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* ---------- funding ladder ---------- */
+
+    .ladder {
+      display: grid;
+      gap: 18px;
+    }
+
+    .rung {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 20px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .rung .num {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: #6ee7a8;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .rung h3 {
+      margin-bottom: 6px;
+      font-size: 20px;
+    }
+
+    .rung .facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .rung .facts div {
+      display: grid;
+      gap: 3px;
+    }
+
+    .rung .facts small {
+      color: var(--muted);
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .rung .facts b {
+      color: var(--ink);
+      font-size: 14.5px;
+    }
+
+    /* ---------- approval factors ---------- */
+
+    .factors {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .factors h2,
+    .factors .eyebrow {
+      color: var(--white);
+    }
+
+    .factors .eyebrow {
+      color: #6ee7a8;
+    }
+
+    .factors > .shell > p.lead {
+      color: #b9c8d7;
+    }
+
+    .factor {
+      padding: 20px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .factor h3 {
+      margin-bottom: 6px;
+      color: var(--white);
+      font-size: 17px;
+    }
+
+    .factor p {
+      margin-bottom: 0;
+      color: #b9c8d7;
+      font-size: 14.5px;
+    }
+
+    /* ---------- inside the checklist ---------- */
+
+    .checklist-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist-list li {
+      position: relative;
+      padding: 14px 16px 14px 46px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      font-size: 15.5px;
+      font-weight: 600;
+    }
+
+    .checklist-list li::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 18px;
+      width: 15px;
+      height: 8px;
+      border-left: 3px solid var(--green);
+      border-bottom: 3px solid var(--green);
+      transform: rotate(-45deg);
+    }
+
+    /* ---------- fit ---------- */
+
+    .fit {
+      background: var(--white);
+    }
+
+    .fit .card ul {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .fit .yes {
+      border-top: 4px solid var(--green);
+    }
+
+    .fit .no {
+      border-top: 4px solid var(--red);
+    }
+
+    /* ---------- proof ---------- */
+
+    .fill {
+      padding: 1px 6px;
+      border: 1px dashed #c08a2e;
+      border-radius: 4px;
+      background: var(--gold-soft);
+      color: #8a610f;
+      font-size: 0.92em;
+      font-weight: 700;
+    }
+
+    .proof-note {
+      margin-top: 20px;
+      padding: 14px 16px;
+      border: 1px dashed #c08a2e;
+      border-radius: 8px;
+      background: var(--gold-soft);
+      color: #7a5610;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    .proof-note p {
+      margin-bottom: 0;
+      color: inherit;
+      font-size: inherit;
+    }
+
+    /* ---------- faq ---------- */
+
+    .faq {
+      background: var(--white);
+    }
+
+    details {
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    details + details {
+      margin-top: 12px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    summary::marker {
+      color: var(--green);
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: #344456;
+      font-size: 15px;
+    }
+
+    details p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ---------- closing cta ---------- */
+
+    .close {
+      background: linear-gradient(140deg, #0b1b2b 0%, #12283d 58%, #0d3b2c 100%);
+      color: var(--white);
+    }
+
+    .close .shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(330px, 420px);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .close h2 {
+      color: var(--white);
+    }
+
+    .close p {
+      color: #cdd9e5;
+      font-size: 17px;
+    }
+
+    .close .eyebrow {
+      color: #6ee7a8;
+    }
+
+    /* ---------- footer ---------- */
+
+    footer {
+      padding: 34px 0 46px;
+      background: #061119;
+      color: #8fa3b6;
+    }
+
+    footer p {
+      margin-bottom: 12px;
+      color: #8fa3b6;
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    footer p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer b {
+      color: #cbd8e4;
+    }
+
+    @media (max-width: 860px) {
+      section {
+        padding: 46px 0;
+      }
+
+      .hero .shell,
+      .close .shell {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .optin {
+        position: static;
+      }
+
+      .grid.two,
+      .grid.three,
+      .rung .facts {
+        grid-template-columns: 1fr;
+      }
+
+      .rung {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .brandbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HERO + OPT-IN ================= -->
+  <section class="hero">
+    <div class="shell">
+      <div class="brandbar">
+        <span class="mark"><i>X</i> X Enterprises LLC</span>
+        <span class="contact">Questions? <span class="fill">[FILL: phone]</span> &middot; <span class="fill">[FILL: email]</span></span>
+      </div>
+
+      <div>
+        <p class="eyebrow" style="color:#6ee7a8">Free download &middot; No credit pull</p>
+        <h1>Stop bankrolling your business with <em>your own</em> money.</h1>
+        <p class="sub">
+          Most owners fund growth on personal cards at 20&ndash;30% interest, or get declined and never find out
+          why. The Business Funding Readiness Checklist shows you exactly what card issuers and lenders look at
+          before they say yes &mdash; and which gaps to close first.
+        </p>
+        <ul>
+          <li>The documents to have ready before you apply for anything</li>
+          <li>The profile factors that decide your limits, in the order they matter</li>
+          <li>The six most common reasons applications get declined</li>
+          <li>How business credit cards, lines of credit, and personal-backed options differ</li>
+        </ul>
+      </div>
+
+      <div class="optin" id="optin">
+        <h2>Send me the checklist</h2>
+        <p class="optin-sub">Enter your details and it opens immediately &mdash; no waiting on an email.</p>
+
+        <form id="optin-form" novalidate>
+          <p class="form-error" id="optin-error" role="alert"></p>
+
+          <div class="field">
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="phone">Mobile phone</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+          </div>
+
+          <div class="hp" aria-hidden="true">
+            <label for="companyWebsite">Company website</label>
+            <input type="text" id="companyWebsite" name="companyWebsite" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" id="optin-submit">Get the free checklist &rarr;</button>
+          <p class="microtrust">No credit check. No application. Unsubscribe any time.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROBLEM ================= -->
+  <section class="problem">
+    <div class="shell">
+      <p class="eyebrow">Why this matters</p>
+      <h2>Nobody tells you the rules until after they decline you.</h2>
+      <p class="lead">
+        Funding decisions run on a short list of factors that are almost never explained to the applicant.
+        The result is a pattern that repeats across thousands of small businesses.
+      </p>
+
+      <div class="grid three">
+        <div class="card">
+          <h3>Personal cards become the default</h3>
+          <p>
+            Inventory, payroll gaps, equipment, and ad spend land on personal credit. The interest is high,
+            the balance follows you personally, and every dollar of it counts against your personal profile.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Rejections stack up quietly</h3>
+          <p>
+            Applying without preparation produces inquiries and declines. Several rushed applications in a
+            short window can make the next approval harder than the first one would have been.
+          </p>
+        </div>
+        <div class="card">
+          <h3>The business has no profile of its own</h3>
+          <p>
+            An entity with no EIN-linked history, no business bank account, and no reported accounts is
+            invisible to underwriting. Everything gets judged on you personally instead.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>
+          The fix is ordinary: know what gets reviewed, prepare the profile deliberately, and apply in a
+          sequence that makes sense. That is what the checklist walks you through.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW FUNDING ACTUALLY WORKS ================= -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">The education</p>
+      <h2>How business funding actually works</h2>
+      <p class="lead">
+        Three different instruments, three different bars to clear. Most owners only ever hear about one of
+        them. Which one fits depends on your documentation and how you plan to use the money.
+      </p>
+
+      <div class="ladder">
+        <article class="rung">
+          <div class="num">1</div>
+          <div>
+            <span class="tag">Usually the entry point</span>
+            <h3>Business credit cards</h3>
+            <p>
+              Revolving accounts opened in the business name and underwritten primarily on your personal
+              credit profile, with a personal guarantee. Many carry introductory 0% APR periods, which is why
+              they are often the first tool owners use for inventory, ad spend, or equipment. Approval leans on
+              your personal profile far more than on business revenue, so this path is open to newer entities.
+            </p>
+            <div class="facts">
+              <div><small>Typically needs</small><b>EIN, entity, strong personal profile</b></div>
+              <div><small>Documentation</small><b>Light &mdash; often stated revenue</b></div>
+              <div><small>Best for</small><b>Short-cycle, repayable spend</b></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="rung">
+          <div class="num">2</div>
+          <div>
+            <span class="tag navy">Requires paperwork</span>
+            <h3>Business lines of credit</h3>
+            <p>
+              A revolving limit you draw against and repay, priced as interest rather than a card APR. This is
+              the step up &mdash; and the reason it is a step up is documentation. Lenders want to see the
+              business's own financial history: bank statements, tax returns, and time in business. If you have
+              the records, a line of credit is usually cheaper and more flexible than card debt for working capital.
+            </p>
+            <div class="facts">
+              <div><small>Typically needs</small><b>Bank statements, tax returns, time in business</b></div>
+              <div><small>Documentation</small><b>Heavier &mdash; full financial file</b></div>
+              <div><small>Best for</small><b>Working capital and cash-flow gaps</b></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="rung">
+          <div class="num">3</div>
+          <div>
+            <span class="tag gold">When it makes sense</span>
+            <h3>Personal-backed options</h3>
+            <p>
+              Personal credit lines and personal loans deployed into the business. Sometimes this is the right
+              call &mdash; a brand-new entity with no history may have no other realistic path to starting
+              capital. But it is a real trade: the obligation sits on you personally and consumes personal
+              capacity you may want later. It should be a deliberate choice, not a fallback you land on.
+            </p>
+            <div class="facts">
+              <div><small>Typically needs</small><b>Personal profile and income</b></div>
+              <div><small>Documentation</small><b>Personal, not business</b></div>
+              <div><small>Trade-off</small><b>Personal liability and capacity</b></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= APPROVAL FACTORS ================= -->
+  <section class="factors">
+    <div class="shell">
+      <p class="eyebrow">What underwriting looks at</p>
+      <h2>Six factors decide what you qualify for</h2>
+      <p class="lead">
+        These are the levers. Some you can move in a few weeks, some take longer &mdash; but every one of
+        them is knowable before you submit a single application.
+      </p>
+
+      <div class="grid three">
+        <div class="factor">
+          <h3>1. Entity and EIN setup</h3>
+          <p>A registered entity, an EIN, a business bank account, and consistent naming and address details across every record.</p>
+        </div>
+        <div class="factor">
+          <h3>2. Personal credit profile</h3>
+          <p>Score band, payment history, and derogatory marks. On card products this carries the most weight of anything on the list.</p>
+        </div>
+        <div class="factor">
+          <h3>3. Credit utilization</h3>
+          <p>How much of your existing revolving credit is already in use. High utilization suppresses both approvals and limits.</p>
+        </div>
+        <div class="factor">
+          <h3>4. Time in business</h3>
+          <p>How long the entity has existed and been operating. It gates which products are realistically available to you.</p>
+        </div>
+        <div class="factor">
+          <h3>5. Revenue and deposits</h3>
+          <p>Consistency of monthly deposits in the business account. This is what a line of credit is sized against.</p>
+        </div>
+        <div class="factor">
+          <h3>6. Recent inquiries</h3>
+          <p>How many applications you have submitted lately, and how they were spaced. Sequence and timing genuinely matter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHAT'S INSIDE ================= -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">The free download</p>
+      <h2>What's inside the checklist</h2>
+      <p class="lead">
+        Six pages, no fluff. Built to be printed and worked through line by line before you apply for anything.
+      </p>
+
+      <div class="grid two">
+        <ul class="checklist-list">
+          <li>The document pack to assemble before any application</li>
+          <li>Entity and EIN readiness &mdash; the setup items that get missed</li>
+          <li>Credit profile prep, with the items worth fixing first</li>
+        </ul>
+        <ul class="checklist-list">
+          <li>Six common denial reasons and how to avoid each one</li>
+          <li>Which funding type fits which use of money</li>
+          <li>Questions to ask before you accept any offer</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FIT ================= -->
+  <section class="fit">
+    <div class="shell">
+      <p class="eyebrow">Straight talk</p>
+      <h2>Who this is for &mdash; and who it isn't</h2>
+
+      <div class="grid two">
+        <div class="card yes">
+          <span class="tag">A good fit</span>
+          <h3>This is for you if</h3>
+          <ul>
+            <li>You own a registered business, or you are about to register one.</li>
+            <li>You have a specific use for the capital and a plan to repay it.</li>
+            <li>Your personal credit is decent, or you are willing to work on it first.</li>
+            <li>You want to understand the process rather than be sold on it.</li>
+          </ul>
+        </div>
+        <div class="card no">
+          <span class="tag gold">Not a fit</span>
+          <h3>This is not for you if</h3>
+          <ul>
+            <li>You are looking for funding with no personal guarantee and no documentation.</li>
+            <li>You need money this week to cover an obligation already past due.</li>
+            <li>You are expecting a guaranteed approval or a guaranteed amount. Nobody can offer that.</li>
+            <li>You want credit repair. That is a different service and we are not it.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROOF ================= -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Results</p>
+      <h2>What clients have done with it</h2>
+      <p class="lead">Real outcomes from owners who prepared before they applied.</p>
+
+      <div class="grid three">
+        <div class="card">
+          <h3><span class="fill">[FILL: first name, last initial]</span></h3>
+          <p><span class="fill">[FILL: what they secured and over what timeframe]</span></p>
+          <p><span class="fill">[FILL: one sentence in the client's own words]</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="fill">[FILL: first name, last initial]</span></h3>
+          <p><span class="fill">[FILL: what they secured and over what timeframe]</span></p>
+          <p><span class="fill">[FILL: one sentence in the client's own words]</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="fill">[FILL: first name, last initial]</span></h3>
+          <p><span class="fill">[FILL: what they secured and over what timeframe]</span></p>
+          <p><span class="fill">[FILL: one sentence in the client's own words]</span></p>
+        </div>
+      </div>
+
+      <div class="proof-note">
+        <p>
+          <b>Build note &mdash; delete this block before launch.</b> Every <span class="fill">[FILL: ...]</span>
+          above is a placeholder. Replace them with real, documented client outcomes and keep written permission
+          on file for each one. If you do not have testimonials yet, delete this entire section rather than
+          softening the placeholders &mdash; an empty section is fine, an invented one is not.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="faq">
+    <div class="shell">
+      <p class="eyebrow">Questions people ask</p>
+      <h2>Before you download</h2>
+
+      <details open>
+        <summary>Is this a loan from X Enterprises?</summary>
+        <p>
+          No. X Enterprises is a funding consultant. We help you prepare, understand your options, and apply in a
+          sensible order. Any credit that gets extended comes from third-party banks and issuers, on their terms
+          and at their discretion.
+        </p>
+      </details>
+
+      <details>
+        <summary>Does downloading the checklist affect my credit?</summary>
+        <p>
+          No. Downloading a checklist is not an application and involves no credit pull of any kind. Nothing on
+          this page touches your credit report.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can you guarantee I'll get approved, or tell me my amount?</summary>
+        <p>
+          No, and be cautious with anyone who does. Approvals and limits are set by the issuer based on your
+          profile at the time you apply. What we can do is make sure you understand the factors and that your
+          file is in the best shape it can be before you submit anything.
+        </p>
+      </details>
+
+      <details>
+        <summary>What does working with you cost?</summary>
+        <p>
+          It depends on which path fits your situation, so we go through it on the call rather than posting a
+          number that would not apply to you. You will get the fee structure in plain terms before you are asked
+          to decide anything.
+        </p>
+      </details>
+
+      <details>
+        <summary>What if my credit isn't great right now?</summary>
+        <p>
+          Then the checklist is the most useful thing you can read this week. It shows you which factors to
+          address first. To be clear about what we are not: we are not a credit repair organization and we do
+          not dispute items on your report.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ================= CLOSING CTA ================= -->
+  <section class="close">
+    <div class="shell">
+      <div>
+        <p class="eyebrow">Start here</p>
+        <h2>Get the checklist. Then decide if a conversation makes sense.</h2>
+        <p>
+          Read it first. If it makes the picture clearer and you want help executing it, there is an option to
+          book a call on the next page &mdash; but the download stands on its own either way.
+        </p>
+      </div>
+
+      <div class="optin">
+        <h2>Send me the checklist</h2>
+        <p class="optin-sub">Opens immediately after you submit.</p>
+
+        <form id="optin-form-2" novalidate>
+          <p class="form-error" id="optin-error-2" role="alert"></p>
+
+          <div class="field">
+            <label for="firstName2">First name</label>
+            <input type="text" id="firstName2" name="firstName" autocomplete="given-name" required>
+          </div>
+
+          <div class="field">
+            <label for="email2">Email</label>
+            <input type="email" id="email2" name="email" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="phone2">Mobile phone</label>
+            <input type="tel" id="phone2" name="phone" autocomplete="tel" required>
+          </div>
+
+          <div class="hp" aria-hidden="true">
+            <label for="companyWebsite2">Company website</label>
+            <input type="text" id="companyWebsite2" name="companyWebsite" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit">Get the free checklist &rarr;</button>
+          <p class="microtrust">No credit check. No application. Unsubscribe any time.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="shell">
+      <p>
+        <b>X Enterprises LLC</b> &middot; <span class="fill">[FILL: business address]</span> &middot;
+        <span class="fill">[FILL: phone]</span> &middot; <span class="fill">[FILL: email]</span>
+      </p>
+      <p>
+        X Enterprises LLC is a business funding consultant. <b>We are not a bank, lender, or credit issuer.</b>
+        All credit is extended by third-party banks and issuers under their own underwriting standards and terms.
+        We do not guarantee approval, funding amounts, rates, or timelines &mdash; those decisions belong to the
+        issuer and depend on your individual profile at the time of application. Individual results vary.
+      </p>
+      <p>
+        X Enterprises LLC is not a credit repair organization and does not offer credit repair services, dispute
+        items on consumer reports, or promise any change to your credit score. Nothing on this page is legal,
+        tax, or financial advice. Business credit cards and lines of credit typically require a personal
+        guarantee.
+      </p>
+      <p>
+        By submitting your information you agree to be contacted by X Enterprises LLC by phone, email, and SMS at
+        the details you provide, including by automated means. Consent is not a condition of any purchase.
+        Message and data rates may apply. Reply STOP to opt out.
+        <span class="fill">[FILL: link to privacy policy]</span> &middot;
+        <span class="fill">[FILL: link to terms]</span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    /* ------------------------------------------------------------------
+       WIRING — set these two values and the funnel is live.
+
+       GHL_WEBHOOK_URL
+         GoHighLevel > Automation > Workflows > add an "Inbound Webhook"
+         trigger, then paste its URL here. Leads POST as JSON.
+         Left as-is, submissions log to the browser console and the user
+         still advances to the next page.
+
+       THANK_YOU_URL
+         Where the opt-in sends people. Keep as-is unless you rename files.
+    ------------------------------------------------------------------ */
+    const CONFIG = {
+      GHL_WEBHOOK_URL: 'PASTE_GHL_INBOUND_WEBHOOK_URL_HERE',
+      THANK_YOU_URL: './x-enterprises-funding-thankyou-v1.html',
+      SOURCE: 'x-enterprises-funding-landing-v1'
+    };
+
+    const STORAGE_KEY = 'xe_funding_lead';
+
+    function isConfigured(value) {
+      return typeof value === 'string' && value.indexOf('PASTE_') !== 0 && value.trim() !== '';
+    }
+
+    function emailLooksValid(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+    }
+
+    function digitsOnly(value) {
+      return value.replace(/\D/g, '');
+    }
+
+    function sendToGhl(payload) {
+      if (!isConfigured(CONFIG.GHL_WEBHOOK_URL)) {
+        console.warn('[X Enterprises] GHL webhook not configured. Payload:', payload);
+        return Promise.resolve(false);
+      }
+
+      return fetch(CONFIG.GHL_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        /* The page navigates as soon as this resolves — keepalive stops the
+           browser cancelling the request mid-flight during that navigation. */
+        keepalive: true
+      })
+        .then(function (response) { return response.ok; })
+        .catch(function (error) {
+          console.error('[X Enterprises] Lead POST failed:', error);
+          return false;
+        });
+    }
+
+    function wireOptin(formId, errorId) {
+      const form = document.getElementById(formId);
+      if (!form) { return; }
+
+      const errorBox = document.getElementById(errorId);
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      function fieldValue(name) {
+        return form.querySelector('[name="' + name + '"]').value.trim();
+      }
+
+      function markInvalid(name, invalid) {
+        form.querySelector('[name="' + name + '"]').setAttribute('aria-invalid', invalid ? 'true' : 'false');
+      }
+
+      function showError(message) {
+        errorBox.textContent = message;
+        errorBox.classList.add('show');
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        errorBox.classList.remove('show');
+
+        const lead = {
+          firstName: fieldValue('firstName'),
+          email: fieldValue('email'),
+          phone: fieldValue('phone')
+        };
+
+        /* Honeypot: real people never fill a field they cannot see. Fail silently. */
+        if (fieldValue('companyWebsite') !== '') { return; }
+
+        markInvalid('firstName', !lead.firstName);
+        markInvalid('email', !emailLooksValid(lead.email));
+        markInvalid('phone', digitsOnly(lead.phone).length < 10);
+
+        if (!lead.firstName) { showError('Please enter your first name.'); return; }
+        if (!emailLooksValid(lead.email)) { showError('Please enter a valid email address.'); return; }
+        if (digitsOnly(lead.phone).length < 10) { showError('Please enter a 10-digit mobile number.'); return; }
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending…';
+
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(lead));
+        } catch (error) {
+          console.warn('[X Enterprises] localStorage unavailable; continuing.', error);
+        }
+
+        sendToGhl({
+          firstName: lead.firstName,
+          email: lead.email,
+          phone: lead.phone,
+          source: CONFIG.SOURCE,
+          event: 'checklist_optin',
+          pageUrl: window.location.href
+        }).then(function () {
+          window.location.href = CONFIG.THANK_YOU_URL;
+        });
+      });
+    }
+
+    wireOptin('optin-form', 'optin-error');
+    wireOptin('optin-form-2', 'optin-error-2');
+  </script>
+</body>
+</html>

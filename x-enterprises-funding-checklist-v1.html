@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business Funding Readiness Checklist | X Enterprises LLC</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #101828;
+      --muted: #536273;
+      --line: #d8e1e8;
+      --paper: #f4f7f8;
+      --white: #ffffff;
+      --navy: #0b1b2b;
+      --navy-2: #12283d;
+      --green: #0f9d58;
+      --green-deep: #0a7a43;
+      --green-soft: #e8f6ee;
+      --gold: #b78321;
+      --gold-soft: #fff5dc;
+      --red: #a6422d;
+      --red-soft: #fdeeea;
+      --shadow: 0 18px 58px rgba(16, 24, 40, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    .page {
+      width: min(980px, calc(100% - 40px));
+      margin: 32px auto;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 34px 38px;
+      background: linear-gradient(135deg, #0b1b2b 0%, #12283d 62%, #0d3b2c 100%);
+      color: var(--white);
+    }
+
+    .lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .lockup i {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--green);
+      color: #04140c;
+      font-family: "Space Grotesk", sans-serif;
+      font-style: normal;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .lockup span {
+      color: #b7c3d2;
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 36px;
+      line-height: 1.05;
+    }
+
+    h2 {
+      margin: 30px 0 10px;
+      color: #0a4a33;
+      font-size: 23px;
+      line-height: 1.2;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    p,
+    li,
+    td,
+    th {
+      color: #344456;
+      font-size: 15px;
+    }
+
+    header p {
+      color: #d6deeb;
+    }
+
+    .lead {
+      max-width: 640px;
+      margin-bottom: 0;
+      font-size: 17px;
+    }
+
+    .meta {
+      min-width: 220px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .meta b {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--white);
+    }
+
+    .meta span {
+      display: block;
+      color: #d6deeb;
+      font-size: 13.5px;
+    }
+
+    main {
+      padding: 30px 38px 38px;
+    }
+
+    .intro {
+      padding: 20px 22px;
+      border: 1px solid #cfe6da;
+      border-left: 4px solid var(--green);
+      border-radius: 8px;
+      background: var(--green-soft);
+    }
+
+    .intro p {
+      margin-bottom: 0;
+      color: #14402a;
+      font-size: 15.5px;
+      font-weight: 600;
+    }
+
+    .section-note {
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+
+    /* ---------- checkbox items ---------- */
+
+    .checks {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      list-style: none;
+      overflow: hidden;
+    }
+
+    .checks li {
+      position: relative;
+      padding: 13px 16px 13px 48px;
+      background: var(--white);
+    }
+
+    .checks li + li {
+      border-top: 1px solid var(--line);
+    }
+
+    .checks li::before {
+      content: "";
+      position: absolute;
+      top: 14px;
+      left: 17px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #9fb1c1;
+      border-radius: 3px;
+      background: var(--white);
+    }
+
+    .checks li b {
+      display: block;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .checks li small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+
+    /* ---------- tables ---------- */
+
+    table {
+      width: 100%;
+      margin-top: 6px;
+      border: 1px solid var(--line);
+      border-collapse: collapse;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--paper);
+      color: var(--navy-2);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    td b {
+      color: var(--ink);
+    }
+
+    /* ---------- denial boxes ---------- */
+
+    .denials {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .box {
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--red);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .box h3 {
+      margin-bottom: 6px;
+      color: var(--red);
+      font-size: 16px;
+    }
+
+    .box p {
+      margin-bottom: 0;
+      font-size: 14.5px;
+    }
+
+    .box p + p {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--line);
+    }
+
+    .box .fixlabel {
+      color: var(--green-deep);
+      font-weight: 800;
+    }
+
+    /* ---------- questions to ask ---------- */
+
+    .asks {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .asks li {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .asks li small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 13.5px;
+    }
+
+    /* ---------- next step ---------- */
+
+    .next-step {
+      margin-top: 30px;
+      padding: 24px 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(135deg, #0b1b2b 0%, #12283d 62%, #0d3b2c 100%);
+      color: var(--white);
+    }
+
+    .next-step h2 {
+      margin: 0 0 8px;
+      color: var(--white);
+      font-size: 21px;
+    }
+
+    .next-step p {
+      margin-bottom: 14px;
+      color: #cdd9e5;
+      font-size: 15px;
+    }
+
+    .next-step a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 13px 22px;
+      border-radius: 6px;
+      background: var(--green);
+      color: #04140c;
+      font-size: 15.5px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .fill {
+      padding: 1px 6px;
+      border: 1px dashed #c08a2e;
+      border-radius: 4px;
+      background: var(--gold-soft);
+      color: #8a610f;
+      font-size: 0.92em;
+      font-weight: 700;
+    }
+
+    .disclaimer {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .disclaimer p {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .disclaimer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .disclaimer b {
+      color: #344456;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+
+      .denials {
+        grid-template-columns: 1fr;
+      }
+
+      header,
+      main {
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 29px;
+      }
+    }
+
+    @media print {
+      @page {
+        size: letter;
+        margin: 0.45in;
+      }
+
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        border: 0;
+        box-shadow: none;
+      }
+
+      header {
+        padding: 26px 30px;
+      }
+
+      main {
+        padding: 24px 30px 0;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        break-after: avoid;
+      }
+
+      table,
+      .box,
+      .checks,
+      .intro,
+      .next-step {
+        break-inside: avoid;
+      }
+
+      .checks li {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <header>
+      <div>
+        <div class="lockup">
+          <i>X</i>
+          <span>X ENTERPRISES LLC</span>
+        </div>
+        <h1>Business Funding<br>Readiness Checklist</h1>
+        <p class="lead">
+          What card issuers and lenders review before they approve you &mdash; and the gaps to close first.
+          Work through this before you submit a single application.
+        </p>
+      </div>
+
+      <div class="meta">
+        <b>How to use this</b>
+        <span>Print it. Check off what you have. Anything unchecked is your work list.</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="intro">
+        <p>
+          Funding is not a lottery. It runs on a short list of factors, and every one of them is knowable before
+          you apply. The owners who get better outcomes are almost never the ones with a secret &mdash; they are
+          the ones who prepared the file first and applied in a sensible order.
+        </p>
+      </div>
+
+      <h2>1. The document pack</h2>
+      <p class="section-note">
+        Gather these before you start anything. Being asked for a document you do not have is the most common
+        reason an application stalls out.
+      </p>
+      <ul class="checks">
+        <li>
+          <b>Formation documents</b>
+          <small>Articles of organization or incorporation, plus your operating agreement or bylaws.</small>
+        </li>
+        <li>
+          <b>EIN confirmation letter</b>
+          <small>The IRS CP 575 notice, or a 147C letter if you have misplaced the original.</small>
+        </li>
+        <li>
+          <b>Business bank statements &mdash; last 3 to 6 months</b>
+          <small>From an account in the business name. Personal statements do not substitute for these.</small>
+        </li>
+        <li>
+          <b>Business tax returns &mdash; last 1 to 2 years</b>
+          <small>Only if the business has filed. A newer entity is not disqualified for lacking these.</small>
+        </li>
+        <li>
+          <b>Personal tax returns &mdash; last 1 to 2 years</b>
+          <small>Frequently requested, since most business credit carries a personal guarantee.</small>
+        </li>
+        <li>
+          <b>Government-issued photo ID</b>
+          <small>Name and address should match your other records exactly.</small>
+        </li>
+        <li>
+          <b>Voided business check or bank letter</b>
+          <small>Used to verify the account funding would be deposited into.</small>
+        </li>
+        <li>
+          <b>A current profit and loss statement</b>
+          <small>Even a simple one. It shows you know your own numbers, which matters more than its formatting.</small>
+        </li>
+      </ul>
+
+      <h2>2. Entity and EIN readiness</h2>
+      <p class="section-note">
+        Underwriting cross-references your details across several sources. Mismatches read as risk, and they are
+        entirely avoidable.
+      </p>
+      <ul class="checks">
+        <li>
+          <b>The entity is registered and in good standing</b>
+          <small>Check your Secretary of State listing. An administratively dissolved entity is an immediate stop.</small>
+        </li>
+        <li>
+          <b>You have an EIN tied to that entity</b>
+          <small>Not your SSN. Free directly from the IRS &mdash; never pay a third party for one.</small>
+        </li>
+        <li>
+          <b>A dedicated business bank account exists and is in use</b>
+          <small>Running business income through a personal account undercuts everything else on this list.</small>
+        </li>
+        <li>
+          <b>Business name, address, and phone match everywhere</b>
+          <small>Entity filing, EIN letter, bank account, website, invoices. "Suite 4" and "Ste 4" can differ enough to matter.</small>
+        </li>
+        <li>
+          <b>The business address is not a residence or a PO box, where avoidable</b>
+          <small>Not always disqualifying, but a commercial or registered agent address is cleaner.</small>
+        </li>
+        <li>
+          <b>The business is reachable</b>
+          <small>A working phone number and a live website. Some issuers do verify that both exist.</small>
+        </li>
+        <li>
+          <b>Your industry classification is accurate</b>
+          <small>Certain codes are restricted by certain issuers. Knowing yours in advance saves a wasted application.</small>
+        </li>
+      </ul>
+
+      <h2>3. Credit profile prep</h2>
+      <p class="section-note">
+        On the products most owners start with, your personal profile carries more weight than anything about
+        the business. These are in the order worth addressing them.
+      </p>
+      <ul class="checks">
+        <li>
+          <b>Pull all three of your personal reports</b>
+          <small>Free at annualcreditreport.com &mdash; the federally authorized source. Checking your own does not affect your score.</small>
+        </li>
+        <li>
+          <b>Verify every account listed is actually yours</b>
+          <small>Errors are common. Anything genuinely inaccurate can be corrected directly with the bureau at no cost.</small>
+        </li>
+        <li>
+          <b>Bring revolving utilization down</b>
+          <small>The single fastest-moving factor on this list. Lower reported balances generally help both approvals and limits.</small>
+        </li>
+        <li>
+          <b>Confirm no late payments in recent months</b>
+          <small>Recency weighs heavily. A clean recent stretch matters more than a spotless distant past.</small>
+        </li>
+        <li>
+          <b>Count your inquiries from the last six months</b>
+          <small>A cluster of recent applications tells underwriting you have been shopping hard and getting declined.</small>
+        </li>
+        <li>
+          <b>Do not close your oldest account to "clean up"</b>
+          <small>Account age helps you. Closing an old card removes that history and can raise your utilization.</small>
+        </li>
+        <li>
+          <b>Know your actual score before you apply</b>
+          <small>Applying blind is how people find out their band the expensive way.</small>
+        </li>
+      </ul>
+
+      <h2>4. Match the funding type to the use of money</h2>
+      <p class="section-note">
+        The right instrument depends on what the money is for and how quickly it comes back. A mismatch here is
+        how affordable funding turns into expensive funding.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Funding type</th>
+            <th>Typically needs</th>
+            <th>Fits best</th>
+            <th>Watch for</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Business credit cards</b></td>
+            <td>Entity, EIN, strong personal profile. Light documentation.</td>
+            <td>Inventory, ad spend, equipment &mdash; spend that recycles quickly.</td>
+            <td>What the rate becomes after any introductory period ends.</td>
+          </tr>
+          <tr>
+            <td><b>Business line of credit</b></td>
+            <td>Bank statements, tax returns, time in business, revenue history.</td>
+            <td>Working capital and cash-flow gaps you draw against and repay.</td>
+            <td>Draw fees, maintenance fees, and renewal terms.</td>
+          </tr>
+          <tr>
+            <td><b>Personal-backed options</b></td>
+            <td>Your personal profile and income. No business history required.</td>
+            <td>Starting capital when the business has no file of its own yet.</td>
+            <td>The obligation is yours personally, and it consumes personal capacity.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>5. Six reasons applications get declined</h2>
+      <p class="section-note">Every one of these is preventable with preparation.</p>
+      <div class="denials">
+        <div class="box">
+          <h3>Applying to everything at once</h3>
+          <p>A burst of applications in a short window reads as distress and stacks inquiries against you.</p>
+          <p><span class="fixlabel">Fix:</span> Decide on a sequence first, and space applications deliberately.</p>
+        </div>
+        <div class="box">
+          <h3>High utilization at the moment of review</h3>
+          <p>Your profile is judged on the day it is pulled, not on your intentions for next month.</p>
+          <p><span class="fixlabel">Fix:</span> Bring balances down and let them report before you apply.</p>
+        </div>
+        <div class="box">
+          <h3>Mismatched business details</h3>
+          <p>Name, address, or phone that differ between your filing, your bank, and your application.</p>
+          <p><span class="fixlabel">Fix:</span> Pick one exact format and correct every record to match it.</p>
+        </div>
+        <div class="box">
+          <h3>No business bank account</h3>
+          <p>Business income running through a personal account leaves the entity with no financial history.</p>
+          <p><span class="fixlabel">Fix:</span> Open one, route all business income through it, and let it season.</p>
+        </div>
+        <div class="box">
+          <h3>Documents you cannot produce</h3>
+          <p>An underwriter asks for statements or returns, and the file goes quiet while you hunt for them.</p>
+          <p><span class="fixlabel">Fix:</span> Assemble section 1 of this checklist before you start.</p>
+        </div>
+        <div class="box">
+          <h3>Asking for an amount the file cannot support</h3>
+          <p>A request far beyond what your revenue and profile justify gets declined outright rather than reduced.</p>
+          <p><span class="fixlabel">Fix:</span> Size the request to what your documentation actually supports.</p>
+        </div>
+      </div>
+
+      <h2>6. Questions to ask before you accept anything</h2>
+      <p class="section-note">
+        Ask these of any funding offer, from anyone &mdash; including us. A straight answer to each one is the
+        minimum bar.
+      </p>
+      <ol class="asks">
+        <li>
+          What is the total cost of this money, in dollars, over the full term?
+          <small>Not the rate. The dollar amount you will have paid when it is finished.</small>
+        </li>
+        <li>
+          Is this a fixed rate or an introductory rate, and what does it become afterward?
+        </li>
+        <li>
+          What fees apply &mdash; origination, draw, maintenance, annual, prepayment?
+        </li>
+        <li>
+          Is there a personal guarantee, and what exactly does it obligate me to?
+        </li>
+        <li>
+          Does this report to business credit, personal credit, or both?
+          <small>This determines whether it builds a business profile or consumes your personal capacity.</small>
+        </li>
+        <li>
+          What happens if I repay it early &mdash; do I save interest, or is it penalized?
+        </li>
+        <li>
+          Who is the actual issuer, and what is the consultant or broker being paid?
+        </li>
+      </ol>
+
+      <div class="next-step">
+        <h2>Where most people get stuck</h2>
+        <p>
+          Not on understanding the list &mdash; on reading their own situation against it. If you want a second
+          set of eyes on where you actually stand, book a 20-minute Funding Strategy Call. No cost, no credit
+          pull, and you leave with a sequence whether or not you work with us.
+        </p>
+        <a href="./x-enterprises-funding-thankyou-v1.html#book">Book a funding strategy call &rarr;</a>
+      </div>
+
+      <div class="disclaimer">
+        <p>
+          <b>X Enterprises LLC</b> &middot; <span class="fill">[FILL: business address]</span> &middot;
+          <span class="fill">[FILL: phone]</span> &middot; <span class="fill">[FILL: email]</span>
+        </p>
+        <p>
+          X Enterprises LLC is a business funding consultant. <b>We are not a bank, lender, or credit issuer.</b>
+          All credit is extended by third-party banks and issuers under their own underwriting standards and
+          terms. We do not guarantee approval, funding amounts, rates, or timelines. Individual results vary.
+        </p>
+        <p>
+          X Enterprises LLC is not a credit repair organization, does not offer credit repair services, does not
+          dispute items on consumer reports on your behalf, and does not promise any change to your credit score.
+          This checklist is general educational information only and is not legal, tax, accounting, or financial
+          advice. Business credit cards and lines of credit typically require a personal guarantee. Consult a
+          qualified professional about your specific circumstances before making a funding decision.
+        </p>
+      </div>
+    </main>
+  </article>
+</body>
+</html>

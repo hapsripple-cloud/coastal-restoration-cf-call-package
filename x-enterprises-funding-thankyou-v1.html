@@ -1,0 +1,1242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Checklist Is Ready | X Enterprises LLC</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #101828;
+      --muted: #536273;
+      --line: #d8e1e8;
+      --paper: #f4f7f8;
+      --white: #ffffff;
+      --navy: #0b1b2b;
+      --navy-2: #12283d;
+      --green: #0f9d58;
+      --green-deep: #0a7a43;
+      --green-soft: #e8f6ee;
+      --gold: #b78321;
+      --gold-soft: #fff5dc;
+      --red: #a6422d;
+      --red-soft: #fdeeea;
+      --shadow: 0 18px 58px rgba(16, 24, 40, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    ol {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+      letter-spacing: 0;
+      line-height: 1.1;
+    }
+
+    a {
+      color: var(--green-deep);
+    }
+
+    .shell {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin-bottom: 10px;
+      color: var(--green-deep);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    section + section {
+      border-top: 1px solid var(--line);
+    }
+
+    section h2 {
+      margin-bottom: 12px;
+      font-size: clamp(26px, 3.4vw, 34px);
+    }
+
+    section > .shell > p.lead {
+      max-width: 720px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* ---------- delivery hero ---------- */
+
+    .deliver {
+      padding: 0;
+      background: linear-gradient(140deg, #0b1b2b 0%, #12283d 58%, #0d3b2c 100%);
+      color: var(--white);
+    }
+
+    .deliver .shell {
+      padding: 30px 0 60px;
+    }
+
+    .brandbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 40px;
+    }
+
+    .brandbar .mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--white);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .brandbar .mark i {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--green);
+      color: #04140c;
+      font-style: normal;
+      font-weight: 800;
+    }
+
+    .brandbar .contact {
+      color: #a9bccd;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .deliver .eyebrow {
+      color: #6ee7a8;
+    }
+
+    .deliver h1 {
+      max-width: 760px;
+      margin-bottom: 14px;
+      font-size: clamp(32px, 4.6vw, 46px);
+    }
+
+    .deliver .sub {
+      max-width: 620px;
+      margin-bottom: 26px;
+      color: #cdd9e5;
+      font-size: 18px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 54px;
+      padding: 15px 26px;
+      border-radius: 6px;
+      background: var(--green);
+      color: #04140c;
+      font-size: 16.5px;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 14px 30px rgba(15, 157, 88, 0.26);
+    }
+
+    .button:hover {
+      background: #34c47c;
+      color: #04140c;
+    }
+
+    .button.ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      color: var(--white);
+      box-shadow: none;
+      font-weight: 700;
+    }
+
+    .button.ghost:hover {
+      background: rgba(255, 255, 255, 0.09);
+      color: var(--white);
+    }
+
+    /* ---------- pitch ---------- */
+
+    .pitch {
+      background: var(--white);
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .card p:last-child,
+    .card ul:last-child {
+      margin-bottom: 0;
+    }
+
+    .card p,
+    .card li {
+      color: #344456;
+      font-size: 15px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    .step .num {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: #6ee7a8;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .step h3 {
+      margin-bottom: 4px;
+      font-size: 17px;
+    }
+
+    .step p {
+      margin-bottom: 0;
+      color: #344456;
+      font-size: 14.5px;
+    }
+
+    /* ---------- qualifier ---------- */
+
+    .qualify {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .qualify h2 {
+      color: var(--white);
+    }
+
+    .qualify .eyebrow {
+      color: #6ee7a8;
+    }
+
+    .qualify > .shell > p.lead {
+      color: #b9c8d7;
+    }
+
+    .qualify-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 0.85fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 26px 70px rgba(4, 12, 20, 0.42);
+      color: var(--ink);
+    }
+
+    .panel-header {
+      padding: 22px 24px 0;
+    }
+
+    .panel-header h3 {
+      margin-bottom: 6px;
+      font-size: 21px;
+    }
+
+    .panel-header p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+      padding: 20px 24px 24px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    label {
+      color: #334355;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 46px;
+      padding: 11px 12px;
+      border: 1px solid #c8d4dd;
+      border-radius: 6px;
+      background: var(--white);
+      color: var(--ink);
+      font: inherit;
+      font-size: 16px;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--green);
+      outline: 3px solid rgba(15, 157, 88, 0.2);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .hp {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    button {
+      min-height: 54px;
+      padding: 14px 18px;
+      border: 0;
+      border-radius: 6px;
+      background: var(--green);
+      color: #04140c;
+      font: inherit;
+      font-size: 16.5px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(15, 157, 88, 0.26);
+    }
+
+    button:hover {
+      background: var(--green-deep);
+      color: var(--white);
+    }
+
+    button:focus-visible {
+      outline: 3px solid rgba(15, 157, 88, 0.32);
+      outline-offset: 2px;
+    }
+
+    button[disabled] {
+      opacity: 0.65;
+      cursor: progress;
+    }
+
+    .microtrust {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12.5px;
+      text-align: center;
+    }
+
+    /* ---------- readout ---------- */
+
+    .readout {
+      display: grid;
+      gap: 16px;
+      padding: 22px 24px 24px;
+    }
+
+    .readout-status {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      border: 1px solid #bfe3d6;
+      border-radius: 8px;
+      background: #f2fbf8;
+    }
+
+    .readout-status strong {
+      color: var(--green-deep);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 19px;
+    }
+
+    .readout-status span {
+      color: #344456;
+      font-size: 14.5px;
+    }
+
+    .readout-status.path-prep {
+      border-color: #e6cf9a;
+      background: var(--gold-soft);
+    }
+
+    .readout-status.path-prep strong {
+      color: #8a610f;
+    }
+
+    .readout-status.path-foundation {
+      border-color: #eec3b7;
+      background: var(--red-soft);
+    }
+
+    .readout-status.path-foundation strong {
+      color: var(--red);
+    }
+
+    .readout-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .readout-line {
+      display: grid;
+      gap: 3px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    .readout-line small {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .readout-line b {
+      color: var(--ink);
+      font-size: 14.5px;
+    }
+
+    .readout h4 {
+      margin: 0 0 8px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 15px;
+    }
+
+    .readout ul {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .readout li {
+      color: #344456;
+      font-size: 14.5px;
+    }
+
+    .readout-disclaimer {
+      margin: 0;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    /* ---------- calendar ---------- */
+
+    .calendar {
+      background: var(--white);
+    }
+
+    #calendar-block[hidden] {
+      display: none;
+    }
+
+    .calendar-frame {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .calendar-frame iframe {
+      display: block;
+      width: 100%;
+      min-height: 720px;
+      border: 0;
+    }
+
+    .calendar-missing {
+      display: grid;
+      gap: 10px;
+      padding: 40px 28px;
+      border: 1px dashed #c08a2e;
+      border-radius: 8px;
+      background: var(--gold-soft);
+      text-align: center;
+    }
+
+    .calendar-missing strong {
+      color: #8a610f;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 19px;
+    }
+
+    .calendar-missing span {
+      color: #7a5610;
+      font-size: 14.5px;
+    }
+
+    .calendar-missing code {
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.07);
+      font-size: 13px;
+    }
+
+    .locked-note {
+      display: grid;
+      gap: 8px;
+      padding: 32px 26px;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      text-align: center;
+    }
+
+    .locked-note strong {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 18px;
+    }
+
+    .locked-note span {
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+
+    .fill {
+      padding: 1px 6px;
+      border: 1px dashed #c08a2e;
+      border-radius: 4px;
+      background: var(--gold-soft);
+      color: #8a610f;
+      font-size: 0.92em;
+      font-weight: 700;
+    }
+
+    /* ---------- footer ---------- */
+
+    footer {
+      padding: 34px 0 46px;
+      background: #061119;
+      color: #8fa3b6;
+    }
+
+    footer p {
+      margin-bottom: 12px;
+      color: #8fa3b6;
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    footer p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer b {
+      color: #cbd8e4;
+    }
+
+    @media (max-width: 860px) {
+      section {
+        padding: 44px 0;
+      }
+
+      .qualify-layout,
+      .grid.two,
+      .grid.three,
+      .form-grid,
+      .readout-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brandbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .calendar-frame iframe {
+        min-height: 900px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= DELIVERY ================= -->
+  <section class="deliver">
+    <div class="shell">
+      <div class="brandbar">
+        <span class="mark"><i>X</i> X Enterprises LLC</span>
+        <span class="contact">Questions? <span class="fill">[FILL: phone]</span> &middot; <span class="fill">[FILL: email]</span></span>
+      </div>
+
+      <p class="eyebrow">Step 1 of 2 &mdash; done</p>
+      <h1>Your Business Funding Readiness Checklist is ready<span id="first-name-slot"></span>.</h1>
+      <p class="sub">
+        Open it now and print it. A copy is also on its way to your email. Work through it before you apply
+        for anything &mdash; the order matters more than most people expect.
+      </p>
+
+      <div class="actions">
+        <a class="button" href="./x-enterprises-funding-checklist-v1.html" target="_blank" rel="noopener">
+          Open the checklist &rarr;
+        </a>
+        <a class="button ghost" href="#book">Or book a funding strategy call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PITCH ================= -->
+  <section class="pitch">
+    <div class="shell">
+      <p class="eyebrow">Step 2 &mdash; optional</p>
+      <h2>Want someone to read your situation with you?</h2>
+      <p class="lead">
+        The checklist tells you what gets reviewed. A Funding Strategy Call tells you where <em>you</em> stand
+        against it. It's a 20-minute call, and there's no cost for it.
+      </p>
+
+      <div class="grid three">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <h3>We look at where you are</h3>
+            <p>Entity setup, time in business, revenue pattern, personal profile, and what you already have open.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <h3>We map the realistic options</h3>
+            <p>Which of the three funding types your situation actually supports right now, and which it doesn't.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <h3>You leave with a sequence</h3>
+            <p>What to fix, in what order, and what to apply for first. Yours to execute with or without us.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid two" style="margin-top:18px">
+        <div class="card">
+          <h3>What the call is</h3>
+          <p>
+            A working conversation about your file. If we're a fit to help you execute, we'll say so and explain
+            what that costs. If you're better off handling it yourself, we'll say that too &mdash; it happens
+            regularly and it costs you nothing to hear.
+          </p>
+        </div>
+        <div class="card">
+          <h3>What the call is not</h3>
+          <p>
+            It is not an application, and nothing on the call pulls your credit. We won't quote you an approval
+            amount, because no one honestly can before an issuer reviews your file. Anyone who does is guessing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= QUALIFIER ================= -->
+  <section class="qualify" id="book">
+    <div class="shell">
+      <p class="eyebrow">Five questions</p>
+      <h2>Answer these and the calendar opens</h2>
+      <p class="lead">
+        This takes about thirty seconds and it makes the call worth your time &mdash; we'll have read your
+        situation before you dial in. You'll also get a read on your likely funding path immediately.
+      </p>
+
+      <div class="qualify-layout">
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Your situation</h3>
+            <p>Nothing here affects your credit. Ranges are fine &mdash; we're not verifying anything yet.</p>
+          </div>
+
+          <form id="qualifier-form" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="entity">Business entity</label>
+                <select id="entity" name="entity">
+                  <option>LLC or Corporation, already registered</option>
+                  <option>Sole proprietor, no entity yet</option>
+                  <option>Not registered yet, planning to</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="timeInBusiness">Time in business</label>
+                <select id="timeInBusiness" name="timeInBusiness">
+                  <option>2 years or more</option>
+                  <option>6 to 24 months</option>
+                  <option>Under 6 months</option>
+                  <option>Not operating yet</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="fico">Personal credit range</label>
+                <select id="fico" name="fico">
+                  <option>720 or above</option>
+                  <option>680 to 719</option>
+                  <option>640 to 679</option>
+                  <option>Below 640</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="revenue">Monthly business revenue</label>
+                <select id="revenue" name="revenue">
+                  <option>$50,000 or more</option>
+                  <option>$10,000 to $50,000</option>
+                  <option>Under $10,000</option>
+                  <option>Pre-revenue</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="capital">Capital you're seeking</label>
+                <select id="capital" name="capital">
+                  <option>Under $25,000</option>
+                  <option>$25,000 to $75,000</option>
+                  <option>$75,000 to $150,000</option>
+                  <option>Over $150,000</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="useOfFunds">What it's for</label>
+                <select id="useOfFunds" name="useOfFunds">
+                  <option>Inventory or supplies</option>
+                  <option>Equipment</option>
+                  <option>Marketing and advertising</option>
+                  <option>Payroll or cash-flow gap</option>
+                  <option>Expansion or new location</option>
+                  <option>Refinancing existing debt</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="qFirstName">First name</label>
+              <input type="text" id="qFirstName" name="firstName" autocomplete="given-name" required>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="qEmail">Email</label>
+                <input type="email" id="qEmail" name="email" autocomplete="email" required>
+              </div>
+
+              <div class="field">
+                <label for="qPhone">Mobile phone</label>
+                <input type="tel" id="qPhone" name="phone" autocomplete="tel" required>
+              </div>
+            </div>
+
+            <div class="hp" aria-hidden="true">
+              <label for="qCompanyWebsite">Company website</label>
+              <input type="text" id="qCompanyWebsite" name="companyWebsite" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button type="submit" id="qualifier-submit">Show my funding path &amp; open the calendar &rarr;</button>
+            <p class="microtrust">No credit check. No application. This is not an offer of credit.</p>
+          </form>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Your likely path</h3>
+            <p>Updates as you answer. An informational read, not an approval decision.</p>
+          </div>
+
+          <div class="readout">
+            <div class="readout-status" id="pathStatus">
+              <strong>Business credit card track</strong>
+              <span>Your profile points toward card products first. Answer the questions to refine this.</span>
+            </div>
+
+            <div class="readout-grid">
+              <div class="readout-line"><small>Entity</small><b id="outEntity">LLC or Corporation, already registered</b></div>
+              <div class="readout-line"><small>Time in business</small><b id="outTimeInBusiness">2 years or more</b></div>
+              <div class="readout-line"><small>Credit range</small><b id="outFico">720 or above</b></div>
+              <div class="readout-line"><small>Monthly revenue</small><b id="outRevenue">$50,000 or more</b></div>
+              <div class="readout-line"><small>Capital sought</small><b id="outCapital">Under $25,000</b></div>
+              <div class="readout-line"><small>Use of funds</small><b id="outUseOfFunds">Inventory or supplies</b></div>
+            </div>
+
+            <div>
+              <h4>What we'd cover on your call</h4>
+              <ul id="talkingPoints">
+                <li>Which products your current profile realistically supports.</li>
+                <li>What to prepare before you submit an application.</li>
+                <li>The order to apply in, and why sequence affects outcomes.</li>
+              </ul>
+            </div>
+
+            <p class="readout-disclaimer">
+              This readout is a general educational guide based on what you entered. It is not an approval, a
+              pre-approval, an offer of credit, or a prediction of any amount. Only an issuer can make that
+              decision, after reviewing your actual file.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CALENDAR ================= -->
+  <section class="calendar">
+    <div class="shell">
+      <p class="eyebrow">Pick a time</p>
+      <h2>Book your Funding Strategy Call</h2>
+      <p class="lead" id="calendar-lead">Answer the five questions above and your available times will appear here.</p>
+
+      <div class="locked-note" id="calendar-locked">
+        <strong>Calendar opens after the questions</strong>
+        <span>It takes about thirty seconds &mdash; scroll up and we'll bring you right back here.</span>
+      </div>
+
+      <div id="calendar-block" hidden>
+        <div class="calendar-frame" id="calendar-frame"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="shell">
+      <p>
+        <b>X Enterprises LLC</b> &middot; <span class="fill">[FILL: business address]</span> &middot;
+        <span class="fill">[FILL: phone]</span> &middot; <span class="fill">[FILL: email]</span>
+      </p>
+      <p>
+        X Enterprises LLC is a business funding consultant. <b>We are not a bank, lender, or credit issuer.</b>
+        All credit is extended by third-party banks and issuers under their own underwriting standards and terms.
+        We do not guarantee approval, funding amounts, rates, or timelines. Individual results vary. The funding
+        path shown on this page is general educational information, not an offer of credit or a pre-approval.
+      </p>
+      <p>
+        X Enterprises LLC is not a credit repair organization and does not offer credit repair services or
+        promise any change to your credit score. Nothing on this page is legal, tax, or financial advice.
+        Business credit cards and lines of credit typically require a personal guarantee.
+      </p>
+      <p>
+        By submitting your information you agree to be contacted by X Enterprises LLC by phone, email, and SMS at
+        the details you provide, including by automated means. Consent is not a condition of any purchase.
+        Message and data rates may apply. Reply STOP to opt out.
+        <span class="fill">[FILL: link to privacy policy]</span> &middot;
+        <span class="fill">[FILL: link to terms]</span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    /* ------------------------------------------------------------------
+       WIRING — set these two values and the funnel is live.
+
+       GHL_WEBHOOK_URL
+         Same GoHighLevel inbound webhook used on the landing page, or a
+         separate one for booked-call leads. Qualifier answers POST as JSON
+         with event: "qualifier_submitted".
+         Left as-is, submissions log to the console and the calendar still
+         opens, so you can demo the flow end to end.
+
+       GHL_CALENDAR_EMBED_URL
+         GoHighLevel > Calendars > your calendar > Share > copy the embed
+         URL (looks like https://api.leadconnectorhq.com/widget/booking/XXXX).
+         Left as-is, a visible "not connected" panel renders instead of a
+         broken iframe.
+    ------------------------------------------------------------------ */
+    const CONFIG = {
+      GHL_WEBHOOK_URL: 'PASTE_GHL_INBOUND_WEBHOOK_URL_HERE',
+      GHL_CALENDAR_EMBED_URL: 'PASTE_GHL_CALENDAR_EMBED_URL_HERE',
+      SOURCE: 'x-enterprises-funding-thankyou-v1'
+    };
+
+    const STORAGE_KEY = 'xe_funding_lead';
+
+    const form = document.getElementById('qualifier-form');
+    const submitButton = document.getElementById('qualifier-submit');
+    const statusBox = document.getElementById('pathStatus');
+
+    /* Maps each input id to the element that mirrors its value in the readout. */
+    const outputIds = {
+      entity: 'outEntity',
+      timeInBusiness: 'outTimeInBusiness',
+      fico: 'outFico',
+      revenue: 'outRevenue',
+      capital: 'outCapital',
+      useOfFunds: 'outUseOfFunds'
+    };
+
+    function isConfigured(value) {
+      return typeof value === 'string' && value.indexOf('PASTE_') !== 0 && value.trim() !== '';
+    }
+
+    function value(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function emailLooksValid(candidate) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(candidate);
+    }
+
+    function digitsOnly(candidate) {
+      return candidate.replace(/\D/g, '');
+    }
+
+    /* ---- prefill from the landing-page opt-in ---- */
+
+    function prefillFromStorage() {
+      let lead = null;
+
+      try {
+        lead = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+      } catch (error) {
+        console.warn('[X Enterprises] Could not read stored lead.', error);
+      }
+
+      if (!lead) { return; }
+
+      if (lead.firstName) {
+        document.getElementById('qFirstName').value = lead.firstName;
+        document.getElementById('first-name-slot').textContent = ', ' + lead.firstName;
+      }
+      if (lead.email) { document.getElementById('qEmail').value = lead.email; }
+      if (lead.phone) { document.getElementById('qPhone').value = lead.phone; }
+    }
+
+    /* ---- classification ----
+       Educational routing only. Deliberately never names a dollar amount,
+       never says "approved", and never implies an issuer decision. */
+
+    function classify(data) {
+      const noEntity = data.entity.indexOf('Not registered') === 0 || data.entity.indexOf('Sole proprietor') === 0;
+      const weakCredit = data.fico.indexOf('Below 640') === 0;
+      const unknownCredit = data.fico.indexOf('Not sure') === 0;
+      const strongCredit = data.fico.indexOf('720') === 0 || data.fico.indexOf('680') === 0;
+      const documented = data.timeInBusiness.indexOf('2 years') === 0 &&
+        (data.revenue.indexOf('$50,000') === 0 || data.revenue.indexOf('$10,000') === 0);
+      const preRevenue = data.revenue.indexOf('Pre-revenue') === 0;
+
+      statusBox.classList.remove('path-prep', 'path-foundation');
+
+      if (weakCredit) {
+        statusBox.classList.add('path-foundation');
+        return {
+          title: 'Foundation first',
+          detail: 'Personal credit carries the most weight on the products you would be applying for, so that is ' +
+            'the place to start. We will walk through which factors to address, in what order, before any application goes out.'
+        };
+      }
+
+      if (unknownCredit) {
+        statusBox.classList.add('path-prep');
+        return {
+          title: 'Pull your report first',
+          detail: 'Not knowing your score is not a problem &mdash; applying without knowing it is. Your reports are ' +
+            'free at annualcreditreport.com and checking them yourself has no effect on your score. Pull them before the ' +
+            'call and we will read your real options off actual numbers instead of guessing.'
+        };
+      }
+
+      if (noEntity) {
+        statusBox.classList.add('path-prep');
+        return {
+          title: 'Entity setup, then cards',
+          detail: 'Your credit profile is workable, but funding in the business name needs the business to exist ' +
+            'properly first: entity, EIN, business bank account, clean matching records. That is a short runway, not a long one.'
+        };
+      }
+
+      if (documented && strongCredit) {
+        return {
+          title: 'Line of credit track',
+          detail: 'You have the two things a line of credit is underwritten on: operating history and documented ' +
+            'revenue. We will confirm the document pack and look at whether cards belong alongside it.'
+        };
+      }
+
+      if (preRevenue || data.timeInBusiness.indexOf('Not operating') === 0) {
+        statusBox.classList.add('path-prep');
+        return {
+          title: 'Startup track',
+          detail: 'With no revenue history yet, the realistic options lean on your personal profile. That can be ' +
+            'the right move for starting capital &mdash; but it is a trade worth making deliberately, and we will walk through it.'
+        };
+      }
+
+      return {
+        title: 'Business credit card track',
+        detail: 'Your profile points toward card products first, which are underwritten mainly on personal credit ' +
+          'and need the lightest documentation. We will look at sequence and timing so the applications do not work against each other.'
+      };
+    }
+
+    function talkingPointsFor(data) {
+      const points = [];
+
+      if (data.entity.indexOf('LLC') !== 0) {
+        points.push('Getting the entity, EIN, and business bank account set up correctly.');
+      } else {
+        points.push('Confirming your entity records match across every source underwriting checks.');
+      }
+
+      if (data.fico.indexOf('Not sure') === 0) {
+        points.push('Pulling your three reports before the call so we work from real numbers.');
+      } else if (data.fico.indexOf('Below 640') === 0) {
+        points.push('Reading your personal credit profile and identifying what to address first.');
+      } else {
+        points.push('Where your current utilization and recent inquiries put you.');
+      }
+
+      if (data.revenue.indexOf('Pre-revenue') === 0) {
+        points.push('Honest trade-offs of personal-backed funding for a pre-revenue business.');
+      } else if (data.timeInBusiness.indexOf('2 years') === 0) {
+        points.push('Assembling the document pack a line of credit requires: statements, returns, history.');
+      } else {
+        points.push('Which products your time in business realistically opens up right now.');
+      }
+
+      points.push('Sequencing your applications so the first one does not compromise the next.');
+      points.push('What ' + data.useOfFunds.toLowerCase() + ' typically calls for, and which instrument fits it.');
+
+      return points;
+    }
+
+    function renderReadout() {
+      const data = {
+        entity: value('entity'),
+        timeInBusiness: value('timeInBusiness'),
+        fico: value('fico'),
+        revenue: value('revenue'),
+        capital: value('capital'),
+        useOfFunds: value('useOfFunds')
+      };
+
+      Object.entries(outputIds).forEach(function (entry) {
+        document.getElementById(entry[1]).textContent = data[entry[0]];
+      });
+
+      const path = classify(data);
+      statusBox.querySelector('strong').textContent = path.title;
+      statusBox.querySelector('span').innerHTML = path.detail;
+
+      const list = document.getElementById('talkingPoints');
+      list.innerHTML = '';
+      talkingPointsFor(data).forEach(function (point) {
+        const item = document.createElement('li');
+        item.textContent = point;
+        list.appendChild(item);
+      });
+
+      return { data: data, path: path };
+    }
+
+    /* ---- calendar ---- */
+
+    function revealCalendar(lead) {
+      const block = document.getElementById('calendar-block');
+      const frame = document.getElementById('calendar-frame');
+      const locked = document.getElementById('calendar-locked');
+
+      locked.hidden = true;
+      locked.style.display = 'none';
+      block.hidden = false;
+
+      if (!isConfigured(CONFIG.GHL_CALENDAR_EMBED_URL)) {
+        frame.className = 'calendar-missing';
+        frame.innerHTML =
+          '<strong>Calendar not connected yet</strong>' +
+          '<span>Paste your GoHighLevel calendar embed URL into ' +
+          '<code>CONFIG.GHL_CALENDAR_EMBED_URL</code> in this file and booking goes live.</span>';
+        document.getElementById('calendar-lead').textContent =
+          'The booking widget appears here once the GoHighLevel calendar URL is set.';
+        block.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+
+      /* GHL accepts prefill params, so the booking form is not a second data entry. */
+      const separator = CONFIG.GHL_CALENDAR_EMBED_URL.indexOf('?') === -1 ? '?' : '&';
+      const params = new URLSearchParams({
+        first_name: lead.firstName || '',
+        email: lead.email || '',
+        phone: lead.phone || ''
+      });
+
+      const iframe = document.createElement('iframe');
+      iframe.src = CONFIG.GHL_CALENDAR_EMBED_URL + separator + params.toString();
+      iframe.title = 'Book your Funding Strategy Call';
+      iframe.setAttribute('scrolling', 'no');
+      frame.appendChild(iframe);
+
+      document.getElementById('calendar-lead').textContent =
+        'Pick any time that works. You will get a confirmation and a reminder before the call.';
+      block.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* ---- submit ---- */
+
+    function sendToGhl(payload) {
+      if (!isConfigured(CONFIG.GHL_WEBHOOK_URL)) {
+        console.warn('[X Enterprises] GHL webhook not configured. Payload:', payload);
+        return Promise.resolve(false);
+      }
+
+      return fetch(CONFIG.GHL_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (response) { return response.ok; })
+        .catch(function (error) {
+          console.error('[X Enterprises] Qualifier POST failed:', error);
+          return false;
+        });
+    }
+
+    form.addEventListener('change', renderReadout);
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      /* Honeypot: real people never fill a field they cannot see. Fail silently. */
+      if (value('qCompanyWebsite') !== '') { return; }
+
+      const lead = {
+        firstName: value('qFirstName'),
+        email: value('qEmail'),
+        phone: value('qPhone')
+      };
+
+      if (!lead.firstName) { document.getElementById('qFirstName').focus(); return; }
+      if (!emailLooksValid(lead.email)) { document.getElementById('qEmail').focus(); return; }
+      if (digitsOnly(lead.phone).length < 10) { document.getElementById('qPhone').focus(); return; }
+
+      const result = renderReadout();
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Opening your calendar…';
+
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(lead));
+      } catch (error) {
+        console.warn('[X Enterprises] localStorage unavailable; continuing.', error);
+      }
+
+      sendToGhl({
+        firstName: lead.firstName,
+        email: lead.email,
+        phone: lead.phone,
+        entity: result.data.entity,
+        timeInBusiness: result.data.timeInBusiness,
+        creditRange: result.data.fico,
+        monthlyRevenue: result.data.revenue,
+        capitalSought: result.data.capital,
+        useOfFunds: result.data.useOfFunds,
+        fundingPath: result.path.title,
+        source: CONFIG.SOURCE,
+        event: 'qualifier_submitted',
+        pageUrl: window.location.href
+      }).then(function () {
+        submitButton.textContent = 'Calendar is open below ↓';
+        revealCalendar(lead);
+      });
+    });
+
+    prefillFromStorage();
+    renderReadout();
+  </script>
+</body>
+</html>
